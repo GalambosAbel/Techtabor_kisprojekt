@@ -7,6 +7,6 @@ public class PlayerKiller : MonoBehaviour
 	public Transform bottom;
     void Update()
     {
-		if (transform.position.y < bottom.position.y) Debug.Log("aaaaaaaaaaaaapuff");
+        //if (transform.position.y < bottom.position.y) Debug.Log("aaaaaaaaaaaaapuff");
     }
 }

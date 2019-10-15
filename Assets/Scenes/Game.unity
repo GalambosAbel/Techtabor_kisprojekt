@@ -130,7 +130,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 110367718}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -399,9 +399,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d753e0914637e418dc320722c449f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxAmmunition: 20
-  magazineCurrent: 10
-  magazineSize: 10
+  maxAmmunition: 1000
+  magazineCurrent: 1000
+  magazineSize: 1000
   ammo: {fileID: 922702778}
   magazine: {fileID: 829059339}
 --- !u!1 &279267237

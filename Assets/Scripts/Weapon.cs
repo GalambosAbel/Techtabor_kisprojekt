@@ -12,6 +12,7 @@ public class Weapon : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             Shoot();
+            
         }
     }
 
