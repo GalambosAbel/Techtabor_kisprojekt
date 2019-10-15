@@ -11,16 +11,10 @@ public class Health : MonoBehaviour
     public Sprite fill;
     public int max;
     public bool isDead;
-    // Start is called before the first frame update
-    void Start()
-    {
-        max = 3;
-    }
 
-    // Update is called once per frame
     void Update()
     {
-        if(hp == 0)
+        if(hp <= 0)
         {
             Die();
         }
@@ -32,22 +26,25 @@ public class Health : MonoBehaviour
         {
             Shot();
         }
-        if (Input.GetKeyDown(KeyCode.K) && hp != max)
+        if (Input.GetKeyDown(KeyCode.K) && hp < max)
         {
             Heal();
         }
 
     }
+
     void Shot()
     {
         hearts[hp-1].GetComponent<SpriteRenderer>().sprite = empty;
         hp--;
     }
+
     void Heal()
     {
         hp++;
         hearts[hp-1].GetComponent<SpriteRenderer>().sprite = fill;
     }
+
     void Die()
     {
         Debug.Log("Dead");

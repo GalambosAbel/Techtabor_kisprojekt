@@ -10,11 +10,13 @@ public class Ammunition : MonoBehaviour
     public int magazineSize;
     public Text ammo;
     public Text magazine;
+
     void Start()
     {
         magazine.text = magazineCurrent.ToString();
         ammo.text = maxAmmunition.ToString();
     }
+
     public bool Shooting()
     {
         if (magazineCurrent > 0)
@@ -25,6 +27,7 @@ public class Ammunition : MonoBehaviour
         }
         return false;
     }
+
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.R))
@@ -32,6 +35,7 @@ public class Ammunition : MonoBehaviour
             Reload();
         }
     }
+
     void Reload()
     {
         if(magazineSize-magazineCurrent <= maxAmmunition)

@@ -6,10 +6,7 @@ public class Weapon : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bullet;
-    void Start()
-    {
 
-    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.F))
@@ -17,9 +14,10 @@ public class Weapon : MonoBehaviour
             Shoot();
         }
     }
+
     void Shoot()
     {
-        if (this.GetComponent<Ammunition>().Shooting())
+        if (GetComponent<Ammunition>().Shooting())
         {
             Instantiate(bullet, firePoint.position, firePoint.rotation);
         }
