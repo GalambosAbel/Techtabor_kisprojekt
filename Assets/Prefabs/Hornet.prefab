@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3771863331971541823}
   - component: {fileID: 3771863331971541820}
   - component: {fileID: 3771863331971541827}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Hornet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
