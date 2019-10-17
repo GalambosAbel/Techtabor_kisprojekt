@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93de22c689034644a3f9ba7d8e91a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  despwanDistance: 500
+  despawnDistance: 500
   speed: 100
   rb: {fileID: 1186790113239459737}
 --- !u!50 &1186790113239459737

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-	public float despwanDistance;
+	public float despawnDistance;
     public float speed;
     public Rigidbody2D rb;
 
@@ -12,14 +12,15 @@ public class Bullet : MonoBehaviour
     {
         Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mouse.z = 0;
-        rb.velocity = (mouse - transform.position).normalized * speed;
-        Debug.Log(Player.p.playerOne.transform.position - transform.position);
+        rb.velocity = (mouse - transform.position).normalized * speed;        
     }
 
 	void Update()
 	{
-		Vector3 v = transform.position;
-		if (v.x > despwanDistance || v.x < -despwanDistance || v.y > despwanDistance || v.y < -despwanDistance)
+        Vector3 p = Player.p.playerOne.transform.position;
+        Vector3 v = transform.position;
+		if (v.x > p.x + despawnDistance || v.x < p.x - despawnDistance 
+            || v.y > p.y + despawnDistance || v.y < p.y - despawnDistance)
 		{
 			Destroy(gameObject);
 		}
