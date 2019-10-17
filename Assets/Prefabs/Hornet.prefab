@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3771863331971541823}
   - component: {fileID: 3771863331971541820}
   - component: {fileID: 3771863331971541827}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Hornet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,6 +74,8 @@ MonoBehaviour:
   targetTransform: {fileID: 0}
   rb: {fileID: 3771863331971541820}
   speed: 10
+  bullet: {fileID: 0}
+  HP: 100
 --- !u!61 &3771863331971541823
 BoxCollider2D:
   m_ObjectHideFlags: 0

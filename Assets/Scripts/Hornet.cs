@@ -10,6 +10,7 @@ public class Hornet : MonoBehaviour
 	float currentSpeed;
 	public float speed;
 	Vector2 newVelocity;
+    public int HP;
 
 	void Awake()
 	{
@@ -20,7 +21,20 @@ public class Hornet : MonoBehaviour
 		GoTowards(targetTransform.position);
 	}
 
-	void GoTowards (Vector3 goal)
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.tag == "bullet")
+        {
+            Weapon weapon = Player.p.playerOne.GetComponent<Weapon>();
+            HP -= weapon.damage;
+        }
+        if(HP <= 0)
+        {
+            Die();
+        }
+    }
+
+    void GoTowards (Vector3 goal)
 	{
 		currentSpeed = speed * Time.deltaTime * 1000;
 		newVelocity.x = (goal - transform.position).normalized.x;
@@ -28,6 +42,10 @@ public class Hornet : MonoBehaviour
 		rb.velocity = newVelocity * currentSpeed;
 
 	}
+    void Die()
+    {
+        Destroy(gameObject);
+    }
 }
 
 
