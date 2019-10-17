@@ -5,21 +5,31 @@ using System;
 
 public class Hornet : MonoBehaviour
 {
-	public Transform targetTransform;
+	//public Transform targetTransform;
 	public Rigidbody2D rb;
 	float currentSpeed;
 	public float speed;
 	Vector2 newVelocity;
     public int HP;
+    public Transform attackPos;
+    public float attackRange;
+    public float timeBtwAttack;
+    public float startTimeBtwAttack;
+    bool ableToAttack;
+    public LayerMask enemies;
 
 	void Awake()
 	{
-	}
+    }
 
-	void Update()
+    void Update()
 	{
-		GoTowards(targetTransform.position);
-	}
+        //GoTowards(targetTransform.position);
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            Attack();
+        }
+    }
 
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -45,6 +55,19 @@ public class Hornet : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
+    }
+    void Attack()
+    {
+        Collider2D[] enemiesInRange = Physics2D.OverlapCircleAll(attackPos.position, attackRange, enemies);
+        for (int i = 0; i < enemiesInRange.Length; i++)
+        {
+            enemiesInRange[i].GetComponent<Health>().Shot();
+        }
+    }
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackPos.position, attackRange);
     }
 }
 

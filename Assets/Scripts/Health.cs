@@ -33,13 +33,13 @@ public class Health : MonoBehaviour
 
     }
 
-    void Shot()
+    public void Shot()
     {
         hearts[hp-1].GetComponent<SpriteRenderer>().sprite = empty;
         hp--;
     }
 
-    void Heal()
+     public void Heal()
     {
         hp++;
         hearts[hp-1].GetComponent<SpriteRenderer>().sprite = fill;
@@ -47,8 +47,6 @@ public class Health : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("Dead");
         isDead = true;
-        //LoadScene(GeatActiveScene);
     }
 }
