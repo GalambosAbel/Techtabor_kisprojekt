@@ -147,7 +147,7 @@ MonoBehaviour:
   HP: 100
   targetTransform: {fileID: 0}
   rb: {fileID: 3771863331971541820}
-  speed: 10
+  speed: 3
   attackPosUp: {fileID: 1440985469005950531}
   attackPosDown: {fileID: 8741252934060473683}
   attackRange: 6
@@ -200,10 +200,10 @@ Rigidbody2D:
   m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9c80202a4c51d994b9b4c3821027b10f, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!212 &3771863331971541827
 SpriteRenderer:

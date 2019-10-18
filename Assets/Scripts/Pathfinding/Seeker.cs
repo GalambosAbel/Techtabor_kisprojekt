@@ -11,7 +11,6 @@ public class Seeker : MonoBehaviour
 	float timer;
 	Vector3[] path;
 	int targetIndex;
-	float speed = 100f;
 
 	void Awake()
 	{
@@ -61,7 +60,7 @@ public class Seeker : MonoBehaviour
 				currentWaypoint = path[targetIndex];
 			}
 
-			transform.position = Vector3.MoveTowards(transform.position, currentWaypoint, speed * Time.deltaTime);
+			gameObject.SendMessage("SetGoal", currentWaypoint);
 			yield return null;
 		}
 	}

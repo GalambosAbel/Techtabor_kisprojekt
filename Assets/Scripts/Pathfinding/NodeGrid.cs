@@ -57,7 +57,7 @@ public class NodeGrid : MonoBehaviour
 	bool IsObsatclePresent (Vector2 worldPoint)
 	{
 		Collider2D collider = null;
-		collider = Physics2D.OverlapArea(worldPoint - new Vector2(nodeRadius,nodeRadius), worldPoint + new Vector2(nodeRadius, nodeRadius), unwalkableMask);
+		collider = Physics2D.OverlapArea(worldPoint - new Vector2(nodeDiameter, nodeDiameter), worldPoint + new Vector2(nodeDiameter, nodeDiameter), unwalkableMask);
 		if (collider == null) return false;
 		return true;
 	}
