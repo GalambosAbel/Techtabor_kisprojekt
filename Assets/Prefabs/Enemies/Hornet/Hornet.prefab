@@ -157,6 +157,8 @@ MonoBehaviour:
   damage: 1
   attackAnim: {fileID: 1534941293854823275, guid: 10279956d464cb943a250a14f6473dcd,
     type: 3}
+  deathAnim: {fileID: 4089843476902289233, guid: a00f108f7c823c44bad6701eb02b8231,
+    type: 3}
 --- !u!61 &3771863331971541823
 BoxCollider2D:
   m_ObjectHideFlags: 0
