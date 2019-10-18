@@ -8,9 +8,7 @@ public class CharacterController2D : MonoBehaviour
 	[Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;	// How much to smooth out the movement
 	[SerializeField] private bool m_AirControl = false;							// Whether or not a player can steer while jumping;
 	[SerializeField] private LayerMask m_WhatIsGround = nullMask;							// A mask determining what is ground to the character
-	[SerializeField] private Transform m_GroundCheck = null;                            // A position marking where to check if the player is grounded.
-	[SerializeField] private Transform m_GroundCheckLeft = null;
-	[SerializeField] private Transform m_GroundCheckRight = null;
+	[SerializeField] private RectTransform m_GroundCheck = null;                            // A position marking where to check if the player is grounded.
 
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	private bool m_Grounded;            // Whether or not the player is grounded.
@@ -43,32 +41,11 @@ public class CharacterController2D : MonoBehaviour
 
 		// The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
 		// This can be done using layers instead but Sample Assets will not overwrite your project settings.
-		Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
-		for (int i = 0; i < colliders.Length; i++)
-		{
-			if (colliders[i].gameObject != gameObject)
-			{
-				m_Grounded = true;
-				if (!wasGrounded)
-					OnLandEvent.Invoke();
-			}
-		}
-		wasGrounded = m_Grounded;
-		Collider2D[] collidersL = Physics2D.OverlapCircleAll(m_GroundCheckLeft.position, k_GroundedRadius, m_WhatIsGround);
-		for (int i = 0; i < collidersL.Length; i++)
-		{
-			if (collidersL[i].gameObject != gameObject)
-			{
-				m_Grounded = true;
-				if (!wasGrounded)
-					OnLandEvent.Invoke();
-			}
-		}
-		wasGrounded = m_Grounded;
-		Collider2D[] collidersR = Physics2D.OverlapCircleAll(m_GroundCheckRight.position, k_GroundedRadius, m_WhatIsGround);
-		for (int i = 0; i < collidersR.Length; i++)
-		{
-			if (collidersR[i].gameObject != gameObject)
+		Vector2 pointA = new Vector2(m_GroundCheck.position.x, m_GroundCheck.position.y) - m_GroundCheck.rect.size * transform.localScale / 2;
+		Vector2 pointB = new Vector2(m_GroundCheck.position.x, m_GroundCheck.position.y) + m_GroundCheck.rect.size * transform.localScale / 2;
+		Collider2D collider = Physics2D.OverlapArea(pointA, pointB, m_WhatIsGround);
+		if (collider != null) {
+			if (collider.gameObject != gameObject)
 			{
 				m_Grounded = true;
 				if (!wasGrounded)
