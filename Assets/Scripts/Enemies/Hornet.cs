@@ -84,7 +84,7 @@ public class Hornet : MonoBehaviour
         }
     }
 
-    void GoTowards (Vector3 goal)
+	void GoTowards (Vector3 goal)
 	{
 		currentSpeed = speed * Time.deltaTime;
 		newVelocity.x = (goal - transform.position).normalized.x * currentSpeed;

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4089843476902289234}
   - component: {fileID: 4089843476902289235}
   - component: {fileID: 4089843476902289232}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: hornet death anim
   m_TagString: Untagged
   m_Icon: {fileID: 0}

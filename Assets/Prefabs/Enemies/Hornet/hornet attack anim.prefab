@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6276380501719710055}
   - component: {fileID: 8369639074063051584}
   - component: {fileID: 5020160387608154965}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: hornet attack anim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
