@@ -29,6 +29,7 @@ public class Hornet : MonoBehaviour
 	public int damage;
 	public GameObject attackAnim;
 	#endregion
+
 	public GameObject deathAnim;
 
 	void Awake()
