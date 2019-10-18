@@ -6,24 +6,16 @@ using System;
 public class Seeker : MonoBehaviour
 {
 	Rigidbody2D rb;
-	Action< Action<Vector3> > getTarget;
+	public Vector3 target; 
 	public float updateTime;
 	float timer;
-	public bool active;
 	Vector3[] path;
 	int targetIndex;
-	public float speed = 100f;
+	float speed = 100f;
 
 	void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
-		active = false;
-	}
-
-	public void Activate (Action< Action<Vector3> > _getTarget)
-	{
-		getTarget = _getTarget;
-		active = true;
 	}
 
 	void Update()
@@ -32,14 +24,13 @@ public class Seeker : MonoBehaviour
 		if (timer <= 0)
 		{
 			timer += updateTime;
-			if (active) getTarget(RequestNewPath);
+			RequestNewPath();
 		}
 	}
 
-	void RequestNewPath (Vector3 _targetPos)
+	void RequestNewPath ()
 	{
-		Vector3 targetPos = _targetPos;
-		PathRequestManager.RequestPath(transform.localPosition, targetPos, OnPathFound);
+		PathRequestManager.RequestPath(transform.position, target, OnPathFound);
 	}
 
 	public void OnPathFound(Vector3[] newPath, bool pathSuccessful)

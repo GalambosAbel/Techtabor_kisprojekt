@@ -24,7 +24,7 @@ public class Health : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.L) && !isDead)
         {
-            Shot();
+            Shot(1);
         }
         if (Input.GetKeyDown(KeyCode.K) && hp < max)
         {
@@ -33,10 +33,13 @@ public class Health : MonoBehaviour
 
     }
 
-    public void Shot()
+    public void Shot(int dmg)
     {
-        hearts[hp-1].GetComponent<SpriteRenderer>().sprite = empty;
-        hp--;
+		for (int i = 0; i < dmg; i++)
+		{
+			hearts[hp - 1].GetComponent<SpriteRenderer>().sprite = empty;
+			hp--;
+		}
     }
 
      public void Heal()
