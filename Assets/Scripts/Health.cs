@@ -37,8 +37,10 @@ public class Health : MonoBehaviour
     {
 		for (int i = 0; i < dmg; i++)
 		{
+			if (hp <= 0) return;
 			hearts[hp - 1].GetComponent<SpriteRenderer>().sprite = empty;
 			hp--;
+			if (hp <= 0) Die();
 		}
     }
 

@@ -53,9 +53,13 @@ void Awake()
 			if (timeUntilAttack <= 0) ableToAttack = true;
 		}
 
-		float avoidPLatformX = newVelocity.x * Mathf.Abs(((transform.position.x - lastPos.x) / newVelocity.x) - 1);	
-		float avoidPLatformY = newVelocity.y * Mathf.Abs(((transform.position.y - lastPos.y) / newVelocity.y) - 1);
-		transform.position += new Vector3(avoidPLatformX, avoidPLatformY, 0);
+		float avoidPlatformX;
+		float avoidPlatformY;
+		if (newVelocity.x != 0) avoidPlatformX = newVelocity.x * Mathf.Abs(((transform.position.x - lastPos.x) / newVelocity.x) - 1);
+		else avoidPlatformX = 0;
+		if (newVelocity.y != 0) avoidPlatformY = newVelocity.y * Mathf.Abs(((transform.position.y - lastPos.y) / newVelocity.y) - 1);
+		else avoidPlatformY = 0;
+		transform.position += new Vector3(avoidPlatformX, avoidPlatformY, 0);
 
 		lastPos = transform.position;
 	}
@@ -106,13 +110,13 @@ void Awake()
 			AttackDown();
 			return;
 		}
+		ableToAttack = false;
+		timeUntilAttack = timeBetweenAttack;
 		AnimateAttack(attackPosUp);
-        for (int i = 0; i < playersInRange.Length; i++)
+		for (int i = 0; i < playersInRange.Length; i++)
         {
             playersInRange[i].GetComponent<Health>().Shot(damage);
 		}
-		ableToAttack = false;
-		timeUntilAttack = timeBetweenAttack;
 	}
 
 	void AttackDown()
@@ -122,13 +126,13 @@ void Awake()
 		{
 			return;
 		}
+		ableToAttack = false;
+		timeUntilAttack = timeBetweenAttack;
 		AnimateAttack(attackPosDown);
 		for (int i = 0; i < playersInRange.Length; i++)
 		{
 			playersInRange[i].GetComponent<Health>().Shot(damage);
 		}
-		ableToAttack = false;
-		timeUntilAttack = timeBetweenAttack;
 	}
 
 	void AnimateAttack (Transform pos)
