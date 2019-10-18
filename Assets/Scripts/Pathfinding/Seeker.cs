@@ -37,6 +37,7 @@ public class Seeker : MonoBehaviour
 		if (pathSuccessful)
 		{
 			path = newPath;
+			if (this == null) return;
 			StopCoroutine("FollowPath");
 			StartCoroutine("FollowPath");
 		}

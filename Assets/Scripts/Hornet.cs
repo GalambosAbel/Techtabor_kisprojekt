@@ -42,7 +42,7 @@ public class Hornet : MonoBehaviour
 
 	void Update()
 	{
-		seeker.target = targetTransform.position;
+		if (seeker != null) seeker.target = targetTransform.position;
 		GoTowards(goalPos);
 		if (ableToAttack)
 		{
