@@ -10,11 +10,12 @@ public class Hornet : MonoBehaviour
 	#region movementVars
 	public Transform targetTransform;
 	Seeker seeker;
-	public Rigidbody2D rb;
 	float currentSpeed;
 	public float speed;
 	Vector2 newVelocity;
 	Vector3 goalPos;
+	Vector3 lastPos;
+	bool left = true;
 	#endregion
 
 	#region attackVars
@@ -31,9 +32,11 @@ public class Hornet : MonoBehaviour
 
 void Awake()
 	{
+		transform.position = new Vector3(transform.position.x, transform.position.y, 0);
 		targetTransform = Player.p.playerOne.transform;
 		seeker = GetComponent<Seeker>();
 		seeker.target = targetTransform.position;
+		lastPos = transform.position;
 	}
 
 	void Update()
@@ -49,7 +52,13 @@ void Awake()
 			timeUntilAttack -= Time.deltaTime;
 			if (timeUntilAttack <= 0) ableToAttack = true;
 		}
-    }
+
+		float avoidPLatformX = newVelocity.x * Mathf.Abs(((transform.position.x - lastPos.x) / newVelocity.x) - 1);	
+		float avoidPLatformY = newVelocity.y * Mathf.Abs(((transform.position.y - lastPos.y) / newVelocity.y) - 1);
+		transform.position += new Vector3(avoidPLatformX, avoidPLatformY, 0);
+
+		lastPos = transform.position;
+	}
 
 	void SetGoal (Vector3 _goalPos)
 	{
@@ -71,11 +80,17 @@ void Awake()
 
     void GoTowards (Vector3 goal)
 	{
-		currentSpeed = speed * Time.deltaTime * 1000;
-		newVelocity.x = (goal - transform.position).normalized.x;
-		newVelocity.y = (goal - transform.position).normalized.y;
-		rb.velocity = newVelocity * currentSpeed;
-
+		currentSpeed = speed * Time.deltaTime;
+		newVelocity.x = (goal - transform.position).normalized.x * currentSpeed;
+		newVelocity.y = (goal - transform.position).normalized.y * currentSpeed;
+		if (Mathf.Abs(newVelocity.x) > Mathf.Abs((goal - transform.position).x)) newVelocity.x = (goal - transform.position).x;
+		if (Mathf.Abs(newVelocity.y) > Mathf.Abs((goal - transform.position).y)) newVelocity.y = (goal - transform.position).y;
+		transform.position += new Vector3(newVelocity.x, newVelocity.y, 0);
+		if (newVelocity.x > 0 && left || newVelocity.x < 0 && !left)
+		{
+			left = !left;
+			transform.Rotate(0f, 180f, 0);
+		}
 	}
 
     void Die()
