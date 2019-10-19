@@ -65,4 +65,9 @@ public class Health : MonoBehaviour
         isDead = true;
         SceneManager.LoadScene("Menu");
     }
+    public void FullHeal()
+    {
+        hp = 100;
+        healthBar.transform.localScale = new Vector3(1, healthBar.transform.localScale.y, 1);
+    }
 }

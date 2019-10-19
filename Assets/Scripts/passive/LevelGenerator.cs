@@ -10,6 +10,7 @@ public class LevelGenerator : MonoBehaviour
 	public GameObject[] sections = new GameObject[3];
 	public GameObject background;
 	public GameObject checkpoint;
+    public GameObject healthBar;
 	float highestSectionY;
 
 	void Awake()
@@ -46,7 +47,8 @@ public class LevelGenerator : MonoBehaviour
 		}
 		SpawnCheckpoint();
 		OnCheckpointLoaded();
-	}
+        Player.p.playerOne.GetComponent<Health>().FullHeal();
+    }
 
 	void SpawnSection ()
 	{
