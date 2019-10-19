@@ -154,7 +154,7 @@ MonoBehaviour:
   players:
     serializedVersion: 2
     m_Bits: 512
-  damage: 20
+  damage: 14
   attackAnim: {fileID: 1534941293854823275, guid: 10279956d464cb943a250a14f6473dcd,
     type: 3}
   deathAnim: {fileID: 4089843476902289233, guid: a00f108f7c823c44bad6701eb02b8231,

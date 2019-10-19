@@ -26,7 +26,7 @@ public class LevelGenerator : MonoBehaviour
 
 	void Update()
 	{
-		if (Camera.main.transform.position.y >= highestSectionY) OnCheckpointEnter();
+		if (Camera.main.transform.position.y >= highestSectionY - 20) OnCheckpointEnter();
 	}
 
 	void OnCheckpointLoaded ()

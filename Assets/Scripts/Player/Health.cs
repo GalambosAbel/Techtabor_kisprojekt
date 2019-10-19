@@ -26,13 +26,10 @@ public class Health : MonoBehaviour
         {
             isDead = false;
         }
-        if(Input.GetKeyDown(KeyCode.L) && !isDead)
-        {
-            Shot(10);
-        }
+        
         if (Input.GetKeyDown(KeyCode.K) && hp < max)
         {
-            Heal();
+            Heal(10);
         }
         healthBar.transform.localScale = new Vector3(hp/100, healthBar.transform.localScale.y, 1);
     }
@@ -40,7 +37,7 @@ public class Health : MonoBehaviour
     {
         if (col.tag == "enemyBullet")
         {
-            Shot(10);
+            Shot(20);
         }
     }
     
@@ -61,10 +58,9 @@ public class Health : MonoBehaviour
         }
     }
 
-     public void Heal()
+     public void Heal(int heal)
     {
-        hp++;
-        healthBar.transform.localScale = new Vector3(healthBar.transform.localScale.x + 0.01f, healthBar.transform.localScale.y, 1);
+        hp += heal;
     }
 
     void Die()
