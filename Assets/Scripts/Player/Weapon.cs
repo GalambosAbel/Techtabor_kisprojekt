@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    public Transform firePoint;
     public GameObject bullet;
+    public float spawnPointMultiplier;
     public int damage;
 
     void Update()
@@ -21,7 +21,10 @@ public class Weapon : MonoBehaviour
     {
         if (GetComponent<Ammunition>().Shooting())
         {
-            Instantiate(bullet, firePoint.position, firePoint.rotation);
+            Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mouse.z = 0;
+            Vector3 bulletSpawnPoint = transform.position + (mouse - transform.position).normalized * spawnPointMultiplier;
+            Instantiate(bullet, bulletSpawnPoint, transform.rotation);
         }
     }
 }
