@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   despawnDistance: 500
-  speed: 100
+  speed: 200
   rb: {fileID: 1186790113239459737}
 --- !u!50 &1186790113239459737
 Rigidbody2D:
