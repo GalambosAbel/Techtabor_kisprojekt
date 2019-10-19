@@ -36,9 +36,15 @@ public class Health : MonoBehaviour
         {
             Heal();
         }
-
     }
-
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.tag == "enemyBullet")
+        {
+            Shot(1);
+        }
+    }
+    
     public void Shot(int dmg)
     {
         if(timeUntilInvulnerable <= 0)
