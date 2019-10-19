@@ -5,14 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
-    public int hp;
-    public GameObject[] hearts;
-    public Sprite empty;
-    public Sprite fill;
+    public float hp;
     public int max;
     public bool isDead;
     public float timeUntilInvulnerable;
     public float startTimeUInvul;
+    public GameObject healthBar;
 
     void Update()
     {
@@ -30,18 +28,19 @@ public class Health : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.L) && !isDead)
         {
-            Shot(1);
+            Shot(10);
         }
         if (Input.GetKeyDown(KeyCode.K) && hp < max)
         {
             Heal();
         }
+        healthBar.transform.localScale = new Vector3(hp/100, healthBar.transform.localScale.y, 1);
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.tag == "enemyBullet")
         {
-            Shot(1);
+            Shot(10);
         }
     }
     
@@ -49,13 +48,14 @@ public class Health : MonoBehaviour
     {
         if(timeUntilInvulnerable <= 0)
         {
-            for (int i = 0; i < dmg; i++)
+            if(dmg >= hp)
             {
-                if (hp <= 0) return;
-                hearts[hp - 1].GetComponent<SpriteRenderer>().sprite = empty;
-                hp--;
-                if (hp <= 0) Die();
-
+                hp = 0;
+                Die();
+            }
+            else
+            {
+                hp -= dmg;
             }
             timeUntilInvulnerable = startTimeUInvul;
         }
@@ -64,7 +64,7 @@ public class Health : MonoBehaviour
      public void Heal()
     {
         hp++;
-        hearts[hp-1].GetComponent<SpriteRenderer>().sprite = fill;
+        healthBar.transform.localScale = new Vector3(healthBar.transform.localScale.x + 0.01f, healthBar.transform.localScale.y, 1);
     }
 
     void Die()
