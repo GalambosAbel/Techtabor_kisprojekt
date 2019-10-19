@@ -96,6 +96,7 @@ public class SkyKnight : MonoBehaviour
         Gizmos.color = Color.magenta;
         Gizmos.DrawCube(targetPos, Vector3.one * 10);
     }
+
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.tag == "bullet")
@@ -108,6 +109,7 @@ public class SkyKnight : MonoBehaviour
             Die();
         }
     }
+
     void Die()
     {
         Destroy(gameObject);

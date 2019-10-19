@@ -42,6 +42,7 @@ public class EnemySpawner : MonoBehaviour
 
 	public void StopSpawn ()
 	{
+		enemyParent.GetComponent<DestroyEnemies>().KillEnemies();
 		isSpawning = false;
 	}
 
