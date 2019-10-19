@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
+	SpriteRenderer sr;
     public float hp;
     public int max;
     public bool isDead;
@@ -12,12 +13,18 @@ public class Health : MonoBehaviour
     public float startTimeUInvul;
     public GameObject healthBar;
 
-    void Update()
+	void Awake()
+	{
+		sr = GetComponent<SpriteRenderer>();
+	}
+
+	void Update()
     {
         if(timeUntilInvulnerable >= 0)
         {
             timeUntilInvulnerable -= Time.deltaTime;
-        }
+			sr.color = sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1 - timeUntilInvulnerable / startTimeUInvul / 2);
+		}
         
         if (Input.GetKeyDown(KeyCode.K) && hp < max)
         {
@@ -52,6 +59,7 @@ public class Health : MonoBehaviour
                 hp -= dmg;
             }
             timeUntilInvulnerable = startTimeUInvul;
+			SpriteRenderer sr = GetComponent<SpriteRenderer>();
         }
     }
 
