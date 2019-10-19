@@ -1609,6 +1609,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1532731003}
+  - component: {fileID: 1532731004}
   m_Layer: 0
   m_Name: Enemys
   m_TagString: Untagged
@@ -1631,6 +1632,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1532731004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532731002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01b9ca2eb83d5d4180ba449b564a667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1673861421
 GameObject:
   m_ObjectHideFlags: 0
@@ -1954,11 +1967,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1532731003}
     m_Modifications:
-    - target: {fileID: 2137737061339322992, guid: 5dadc0b6c2b7361449c34a7e9331dab8,
-        type: 3}
-      propertyPath: m_Name
-      value: SkyKnight
-      objectReference: {fileID: 0}
     - target: {fileID: 2137737061339322993, guid: 5dadc0b6c2b7361449c34a7e9331dab8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2063,6 +2071,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2137737061339322992, guid: 5dadc0b6c2b7361449c34a7e9331dab8,
+        type: 3}
+      propertyPath: m_Name
+      value: SkyKnight
       objectReference: {fileID: 0}
     - target: {fileID: 2137737061339323007, guid: 5dadc0b6c2b7361449c34a7e9331dab8,
         type: 3}

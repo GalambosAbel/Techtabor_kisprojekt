@@ -38,6 +38,7 @@ public class LevelGenerator : MonoBehaviour
 	{
 		GetComponent<EnemySpawner>().StopSpawn();
 		GetComponent<CameraMovment>().Stop();
+        FindObjectOfType<DestroyEnemies>().KillEnemies();
 		float y = transform.position.y - Camera.main.orthographicSize + background.transform.localScale.y / 200;
 		background.transform.position = new Vector3(transform.position.x, y, transform.position.z);
 		for (int i = 0; i < checkPointHeight - 1; i++)
