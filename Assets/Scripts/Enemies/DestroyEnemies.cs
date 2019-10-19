@@ -9,7 +9,6 @@ public class DestroyEnemies : MonoBehaviour
         for (int i = 0; i < transform.childCount; i++)
         {
 			transform.GetChild(i).gameObject.SendMessage("Die");
-            Debug.Log("DIE");
         }
     }
 }

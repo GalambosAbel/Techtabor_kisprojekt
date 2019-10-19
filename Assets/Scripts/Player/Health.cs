@@ -35,7 +35,7 @@ public class Health : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == "enemyBullet")
+		if (col.tag == "enemyBullet") 
         {
             Shot(20);
         }
