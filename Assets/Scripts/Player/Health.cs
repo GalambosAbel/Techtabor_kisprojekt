@@ -11,9 +11,15 @@ public class Health : MonoBehaviour
     public Sprite fill;
     public int max;
     public bool isDead;
+    public float timeUntilInvulnerable;
+    public float startTimeUInvul;
 
     void Update()
     {
+        if(timeUntilInvulnerable >= 0)
+        {
+            timeUntilInvulnerable -= Time.deltaTime;
+        }
         if(hp <= 0)
         {
             Die();
@@ -35,13 +41,18 @@ public class Health : MonoBehaviour
 
     public void Shot(int dmg)
     {
-		for (int i = 0; i < dmg; i++)
-		{
-			if (hp <= 0) return;
-			hearts[hp - 1].GetComponent<SpriteRenderer>().sprite = empty;
-			hp--;
-			if (hp <= 0) Die();
-		}
+        if(timeUntilInvulnerable <= 0)
+        {
+            for (int i = 0; i < dmg; i++)
+            {
+                if (hp <= 0) return;
+                hearts[hp - 1].GetComponent<SpriteRenderer>().sprite = empty;
+                hp--;
+                if (hp <= 0) Die();
+
+            }
+            timeUntilInvulnerable = startTimeUInvul;
+        }
     }
 
      public void Heal()
