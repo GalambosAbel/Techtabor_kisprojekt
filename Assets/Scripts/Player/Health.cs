@@ -18,14 +18,6 @@ public class Health : MonoBehaviour
         {
             timeUntilInvulnerable -= Time.deltaTime;
         }
-        if(hp <= 0)
-        {
-            Die();
-        }
-        if(hp != 0)
-        {
-            isDead = false;
-        }
         
         if (Input.GetKeyDown(KeyCode.K) && hp < max)
         {
@@ -38,6 +30,11 @@ public class Health : MonoBehaviour
 		if (col.tag == "enemyBullet") 
         {
             Shot(20);
+        }
+        if(col.name == "Fire")
+        {
+            hp = 0;
+            Die();
         }
     }
     
@@ -66,5 +63,6 @@ public class Health : MonoBehaviour
     void Die()
     {
         isDead = true;
+        SceneManager.LoadScene("Menu");
     }
 }
