@@ -1529,7 +1529,7 @@ MonoBehaviour:
   timeBtwAttack: 0
   startTimeBtwAttack: 2
   bullet: {fileID: 5566086981609118197, guid: 774c744bfc0c09a47b277ed1e4dd882b, type: 3}
-  spawnPointMultiplier: 1
+  spawnPointMultiplier: 15
 --- !u!1 &1210556063
 GameObject:
   m_ObjectHideFlags: 0
