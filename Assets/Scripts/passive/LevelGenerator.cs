@@ -11,7 +11,6 @@ public class LevelGenerator : MonoBehaviour
 	public GameObject background;
 	public GameObject checkpoint;
     public GameObject timeMachine;
-    public GameObject healthBar;
 	float highestSectionY;
 
 	void Awake()
