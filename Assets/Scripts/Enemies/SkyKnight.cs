@@ -16,6 +16,7 @@ public class SkyKnight : MonoBehaviour
     bool left = true;
     Vector2 newVelocity;
     public int HP;
+	public GameObject deathAnim;
 
     void Awake()
     {
@@ -112,6 +113,8 @@ public class SkyKnight : MonoBehaviour
 
     void Die()
     {
-        Destroy(gameObject);
-    }
+		Destroy(gameObject);
+		GameObject a = Instantiate(deathAnim, transform.position, transform.rotation);
+		Destroy(a, 0.33333333333f);
+	}
 }
