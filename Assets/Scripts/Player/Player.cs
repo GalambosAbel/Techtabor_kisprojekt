@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-	public static Player s_p = null;
+	public static Player p;
 	public  GameObject playerOne;
 	public  GameObject playerTwo;
+	public int playerCount;
 
-	public static Player p
+	void Awake()
 	{
-		get
+		if(p == null)
 		{
-			if (s_p == null) s_p = FindObjectOfType(typeof(Player)) as Player;
-			if (s_p == null) s_p = Camera.main.gameObject.AddComponent<Player>();
-			return s_p;
+			p = this;
 		}
 	}
-    
+
 }

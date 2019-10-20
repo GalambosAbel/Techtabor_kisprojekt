@@ -18,6 +18,24 @@ public class Health : MonoBehaviour
 		sr = GetComponent<SpriteRenderer>();
 	}
 
+	void Start()
+	{
+		if (Player.p.playerCount == 0)
+		{
+			Player.p.playerOne = gameObject;
+			Player.p.playerCount++;
+		}
+		else if (Player.p.playerCount == 1)
+		{
+			Player.p.playerTwo = gameObject;
+			Player.p.playerCount++;
+		}
+		else
+		{
+			Destroy(gameObject);
+		}
+	}
+
 	void Update()
     {
         if(timeUntilInvulnerable >= 0)
