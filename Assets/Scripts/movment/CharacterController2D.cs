@@ -9,6 +9,7 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private bool m_AirControl = false;							// Whether or not a player can steer while jumping;
 	[SerializeField] private LayerMask m_WhatIsGround = nullMask;							// A mask determining what is ground to the character
 	[SerializeField] private RectTransform m_GroundCheck = null;                            // A position marking where to check if the player is grounded.
+	[SerializeField] private float downwardsAcceleration = 0f;
 
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	private bool m_Grounded;            // Whether or not the player is grounded.
@@ -53,6 +54,11 @@ public class CharacterController2D : MonoBehaviour
 				if (!wasGrounded)
 					OnLandEvent.Invoke();
 			}
+		}
+
+		if (m_Rigidbody2D.velocity.y < 0)
+		{
+			m_Rigidbody2D.AddForce(Vector2.down * downwardsAcceleration);
 		}
 	}
 
