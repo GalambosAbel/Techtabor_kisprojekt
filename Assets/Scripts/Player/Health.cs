@@ -38,6 +38,10 @@ public class Health : MonoBehaviour
 
 	void Update()
     {
+        if(hp <= 0)
+        {
+            Die();
+        }
         if(timeUntilInvulnerable >= 0)
         {
             timeUntilInvulnerable -= Time.deltaTime;
@@ -49,6 +53,7 @@ public class Health : MonoBehaviour
             Heal(10);
         }
         healthBar.transform.localScale = new Vector3(hp/100, healthBar.transform.localScale.y, 1);
+
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -56,13 +61,16 @@ public class Health : MonoBehaviour
         {
             Shot(20);
         }
-        if(col.name == "Fire")
+
+    }
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.name == "Fire")
         {
-            hp = 0;
-            Die();
+            FireDamage();
         }
     }
-    
+
     public void Shot(int dmg)
     {
         if(timeUntilInvulnerable <= 0)
@@ -70,7 +78,6 @@ public class Health : MonoBehaviour
             if(dmg >= hp)
             {
                 hp = 0;
-                Die();
             }
             else
             {
@@ -95,5 +102,12 @@ public class Health : MonoBehaviour
     {
         hp = 100;
         healthBar.transform.localScale = new Vector3(1, healthBar.transform.localScale.y, 1);
+    }
+    void FireDamage()
+    {
+        if (hp > 0)
+        {
+            hp--;
+        }
     }
 }
