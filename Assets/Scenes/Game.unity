@@ -1172,7 +1172,7 @@ MonoBehaviour:
   playerOne: {fileID: 0}
   playerTwo: {fileID: 0}
   playerCount: 0
-  money: 50
+  money: 0
 --- !u!1 &549102100
 GameObject:
   m_ObjectHideFlags: 0
