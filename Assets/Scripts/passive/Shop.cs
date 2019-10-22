@@ -8,11 +8,12 @@ public class Shop : MonoBehaviour
 	Vector3 p1Pos;
 	Vector3 p2Pos;
 
-	Vector2 ammoPos1;
-	Vector2 ammoPos2;
+	public Vector2 ammoPos1;
+	public Vector2 ammoPos2;
 
-	Vector2 heartPos1;
-	Vector2 heartPos2;
+	public Vector2 heartPos1;
+	public Vector2 heartPos2;
+
 	bool isShopping = false;
 
 	public Camera shopCamera;
@@ -61,7 +62,10 @@ public class Shop : MonoBehaviour
 
 	private void OnDrawGizmos()
 	{
-		Gizmos.color = Color.yellow;
+		Gizmos.color = Color.cyan;
 		Gizmos.DrawCube(shopEnterance, Vector3.one * 10);
+
+		Gizmos.color = Color.red;
+		Gizmos.DrawWireCube((heartPos1 + heartPos2) / 2, heartPos1 - heartPos2);
 	}
 }
