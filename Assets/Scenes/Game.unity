@@ -527,8 +527,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxAmmunition: 1000
   magazineCurrent: 1000
-  ammo: {fileID: 922702778}
-  magazine: {fileID: 829059339}
+  ammoText: {fileID: 829059339}
+  magazineText: {fileID: 922702778}
 --- !u!95 &125394482
 Animator:
   serializedVersion: 3
@@ -559,7 +559,7 @@ GameObject:
   - component: {fileID: 279267238}
   - component: {fileID: 279267239}
   m_Layer: 5
-  m_Name: AmmoScripts
+  m_Name: AmmoTexts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1172,7 +1172,7 @@ MonoBehaviour:
   playerOne: {fileID: 0}
   playerTwo: {fileID: 0}
   playerCount: 0
-  money: 0
+  money: 50
 --- !u!1 &549102100
 GameObject:
   m_ObjectHideFlags: 0
@@ -1590,7 +1590,7 @@ GameObject:
   - component: {fileID: 829059340}
   - component: {fileID: 829059339}
   m_Layer: 5
-  m_Name: Magazine
+  m_Name: Ammo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1706,7 +1706,7 @@ GameObject:
   - component: {fileID: 922702779}
   - component: {fileID: 922702778}
   m_Layer: 5
-  m_Name: Ammo
+  m_Name: Magazine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1880,6 +1880,7 @@ GameObject:
   m_Component:
   - component: {fileID: 971189056}
   - component: {fileID: 971189057}
+  - component: {fileID: 971189058}
   m_Layer: 0
   m_Name: heart
   m_TagString: Untagged
@@ -1951,6 +1952,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &971189058
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971189055}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.27, y: 2.74}
+    newSize: {x: 3.27, y: 2.74}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.27, y: 2.74}
+  m_EdgeRadius: 0
 --- !u!1 &1016132607
 GameObject:
   m_ObjectHideFlags: 0
@@ -2441,6 +2468,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1375933977}
   - component: {fileID: 1375933978}
+  - component: {fileID: 1375933979}
   m_Layer: 0
   m_Name: ammo
   m_TagString: Untagged
@@ -2512,6 +2540,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1375933979
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1375933976}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.08, y: 0.16}
+    newSize: {x: 5.57, y: 5.38}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.08, y: 0.16}
+  m_EdgeRadius: 0
 --- !u!1 &1480200476
 GameObject:
   m_ObjectHideFlags: 0
@@ -2772,11 +2826,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopEnterance: {x: -512, y: -227.5556, z: 0}
-  heart: {fileID: 0}
-  ammo: {fileID: 0}
-  playerMask:
-    serializedVersion: 2
-    m_Bits: 512
+  heart: {fileID: 971189058}
+  ammo: {fileID: 1375933979}
   healthCost: 10
   healthPercent: 50
   ammoCost: 10

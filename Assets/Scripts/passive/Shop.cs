@@ -11,7 +11,10 @@ public class Shop : MonoBehaviour
 	public Collider2D heart;
 	public Collider2D ammo;
 
-	public LayerMask playerMask;
+	int p1HP = 0;
+	int p2HP = 0;
+	int p1Am = 0;
+	int p2Am = 0;
 
 	[Space]
 
@@ -25,15 +28,84 @@ public class Shop : MonoBehaviour
 
 	public Camera shopCamera;
 
-    void Update()
+    void FixedUpdate()
     {
         if (Input.GetKeyDown(KeyCode.L))
 		{
 			LeaveShop();
 		}
+
+		if (isShopping)
+		{
+			if(Players.p.playerOne != null)
+			{
+				if (heart.IsTouching(Players.p.playerOne.GetComponent<BoxCollider2D>()))
+				{
+					p1HP++;
+					if (p1HP >= 50)
+					{
+						p1HP = 0;
+						BuyHealth(Players.p.playerOne);
+					}
+				}
+				else p1HP = 0;
+
+				if (ammo.IsTouching(Players.p.playerOne.GetComponent<BoxCollider2D>()))
+				{
+					p1Am++;
+					if (p1Am >= 50)
+					{
+						p1Am = 0;
+						BuyAmmo(Players.p.playerOne);
+					}
+				}
+				else p1Am = 0;
+
+			}
+			if (Players.p.playerTwo != null)
+			{
+				if (heart.IsTouching(Players.p.playerTwo.GetComponent<BoxCollider2D>()))
+				{
+					p2HP++;
+					if (p2HP >= 50)
+					{
+						p2HP = 0;
+						BuyHealth(Players.p.playerTwo);
+					}
+				}
+				else p2HP = 0;
+
+				if (ammo.IsTouching(Players.p.playerTwo.GetComponent<BoxCollider2D>()))
+				{
+					p2Am++;
+					if (p2Am >= 50)
+					{
+						p2Am = 0;
+						BuyAmmo(Players.p.playerTwo);
+					}
+				}
+				else p2Am = 0;
+			}
+		}
     }
 
+	void BuyHealth (GameObject player)
+	{
+		if (Players.p.money >= healthCost && player.GetComponent<Health>().hp < player.GetComponent<Health>().max)
+		{
+			player.GetComponent<Health>().Heal(healthPercent);
+			Players.p.money -= healthCost;
+		}
+	}
 
+	void BuyAmmo(GameObject player)
+	{
+		if (Players.p.money >= ammoCost && player.GetComponent<Ammunition>().magazineCurrent < player.GetComponent<Ammunition>().maxAmmunition)
+		{
+			player.GetComponent<Ammunition>().magazineCurrent += ammoCount;
+			Players.p.money -= ammoCost;
+		}
+	}
 
 	public void TeleportToShop ()
 	{

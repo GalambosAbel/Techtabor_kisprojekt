@@ -84,9 +84,13 @@ public class Health : MonoBehaviour
         }
     }
 
-     public void Heal(int heal)
-    {
-        hp += heal;
+	public void Heal(int heal)
+	{
+		if (hp + heal < max)
+		{
+			hp += heal;
+		}
+		else hp = max;
     }
 
     void Die()

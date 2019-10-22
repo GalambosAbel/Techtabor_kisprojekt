@@ -7,18 +7,19 @@ public class Ammunition : MonoBehaviour
 {
     public int maxAmmunition;
     public int magazineCurrent;
-    public Text ammo;
-    public Text magazine;
+    public Text ammoText;
+    public Text magazineText;
 
     void Start()
     {
-        magazine.text = magazineCurrent.ToString();
-        ammo.text = maxAmmunition.ToString();
+        magazineText.text = magazineCurrent.ToString();
+        ammoText.text = maxAmmunition.ToString();
     }
 
 	void Update()
 	{
-		magazine.text = magazineCurrent.ToString();
+		if (magazineCurrent > maxAmmunition) magazineCurrent = maxAmmunition;
+		magazineText.text = magazineCurrent.ToString();
 	}
 
 	public bool CanShoot()
