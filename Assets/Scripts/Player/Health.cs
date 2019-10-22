@@ -63,13 +63,15 @@ public class Health : MonoBehaviour
         }
 
     }
-    private void OnCollisionEnter2D(Collision2D col)
+    private void OnTriggerStay2D(Collider2D col)
     {
-        if (col.gameObject.name == "Fire")
+        if (col.name == "Fire")
         {
             FireDamage();
         }
+
     }
+
 
     public void Shot(int dmg)
     {

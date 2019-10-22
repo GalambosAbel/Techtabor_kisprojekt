@@ -326,7 +326,7 @@ MonoBehaviour:
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 16640
   m_GroundCheck: {fileID: 1673861422}
   downwardsAcceleration: 300
   OnLandEvent:
@@ -589,7 +589,7 @@ GameObject:
   - component: {fileID: 441741766}
   - component: {fileID: 441741768}
   - component: {fileID: 441741769}
-  m_Layer: 12
+  m_Layer: 14
   m_Name: Fire
   m_TagString: enemyBullet
   m_Icon: {fileID: 0}
