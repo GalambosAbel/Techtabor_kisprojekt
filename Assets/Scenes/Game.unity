@@ -211,7 +211,7 @@ RectTransform:
   m_Children:
   - {fileID: 1673861422}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -984,9 +984,9 @@ MonoBehaviour:
   BC: 1
   CD: 1
   DA: 1
-  enemies:
-  - {fileID: 2137737061339322992, guid: 5dadc0b6c2b7361449c34a7e9331dab8, type: 3}
+  enemys:
   - {fileID: 3771863331971541829, guid: 6604a65a37ee91c45a1afafd3a170411, type: 3}
+  - {fileID: 2137737061339322992, guid: 5dadc0b6c2b7361449c34a7e9331dab8, type: 3}
   enemyParent: {fileID: 1532731003}
   spawnDelay: 5
 --- !u!114 &519420035
@@ -1004,7 +1004,6 @@ MonoBehaviour:
   playerOne: {fileID: 0}
   playerTwo: {fileID: 0}
   playerCount: 0
-  money: 0
 --- !u!1 &562102111
 GameObject:
   m_ObjectHideFlags: 0
@@ -2216,7 +2215,7 @@ PrefabInstance:
     - target: {fileID: 4505152645169478811, guid: b17d12c86d923cb4e93d7180407b4259,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4505152645169478811, guid: b17d12c86d923cb4e93d7180407b4259,
         type: 3}
