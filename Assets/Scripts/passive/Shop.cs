@@ -8,11 +8,18 @@ public class Shop : MonoBehaviour
 	Vector3 p1Pos;
 	Vector3 p2Pos;
 
-	public Vector2 ammoPos1;
-	public Vector2 ammoPos2;
+	public Collider2D heart;
+	public Collider2D ammo;
 
-	public Vector2 heartPos1;
-	public Vector2 heartPos2;
+	public LayerMask playerMask;
+
+	[Space]
+
+	public int healthCost;
+	public int healthPercent;
+
+	public int ammoCost;
+	public int ammoCount;
 
 	bool isShopping = false;
 
@@ -25,6 +32,8 @@ public class Shop : MonoBehaviour
 			LeaveShop();
 		}
     }
+
+
 
 	public void TeleportToShop ()
 	{
@@ -64,8 +73,5 @@ public class Shop : MonoBehaviour
 	{
 		Gizmos.color = Color.cyan;
 		Gizmos.DrawCube(shopEnterance, Vector3.one * 10);
-
-		Gizmos.color = Color.red;
-		Gizmos.DrawWireCube((heartPos1 + heartPos2) / 2, heartPos1 - heartPos2);
 	}
 }
