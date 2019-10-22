@@ -107,7 +107,7 @@ public class SkyKnight : MonoBehaviour
         }
         if (HP <= 0)
         {
-			Players.p.money += 5;
+			Players.p.money += 6;
 			Die();
         }
     }

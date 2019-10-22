@@ -2829,9 +2829,9 @@ MonoBehaviour:
   heart: {fileID: 971189058}
   ammo: {fileID: 1375933979}
   healthCost: 10
-  healthPercent: 50
+  healthPercent: 33
   ammoCost: 10
-  ammoCount: 10
+  ammoCount: 20
   shopCamera: {fileID: 61837944}
 --- !u!212 &1570014305
 SpriteRenderer:
