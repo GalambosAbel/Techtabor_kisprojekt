@@ -47,7 +47,7 @@ public class LevelGenerator : MonoBehaviour
 		}
 		SpawnCheckpoint();
 		OnCheckpointLoaded();
-        Player.p.playerOne.GetComponent<Health>().FullHeal();
+        Players.p.playerOne.GetComponent<Health>().FullHeal();
         timeMachine.GetComponent<LevelSpeed>().gameSpeed += 0.1f;
     }
 

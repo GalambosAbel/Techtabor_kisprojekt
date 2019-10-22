@@ -35,7 +35,7 @@ public class Hornet : MonoBehaviour
 	void Awake()
 	{
 		transform.position = new Vector3(transform.position.x, transform.position.y, 0);
-		targetTransform = Player.p.playerOne.transform;
+		targetTransform = Players.p.playerOne.transform;
 		seeker = GetComponent<Seeker>();
 		seeker.target = targetTransform.position;
 		lastPos = transform.position;
@@ -75,12 +75,13 @@ public class Hornet : MonoBehaviour
     {
         if(col.tag == "bullet")
         {
-            Weapon weapon = Player.p.playerOne.GetComponent<Weapon>();
+            Weapon weapon = Players.p.playerOne.GetComponent<Weapon>();
             HP -= weapon.damage;
         }
         if(HP <= 0)
         {
-            Die();
+			Players.p.money++;
+			Die();
         }
     }
 

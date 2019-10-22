@@ -16,7 +16,7 @@ public class EnemySpawner : MonoBehaviour
 	public bool DA;
 	#endregion
 
-	public GameObject[] enemys;
+	public GameObject[] enemies;
 	public Transform enemyParent;
 	public float spawnDelay;
 	float untilNextSpawn;
@@ -29,7 +29,7 @@ public class EnemySpawner : MonoBehaviour
 
 	void Update ()
 	{
-		if (Player.p.playerOne.transform.position.y > transform.position.y) isSpawning = true;
+		if (Players.p.playerOne.transform.position.y > transform.position.y) isSpawning = true;
 		else if (!isSpawning) return;
 
 		untilNextSpawn -= Time.deltaTime;
@@ -48,28 +48,28 @@ public class EnemySpawner : MonoBehaviour
 
 	void SpawnEnemy ()
 	{
-		if (enemys.Length == 0) return;
+		if (enemies.Length == 0) return;
 
 		float posPercent = Random.Range(0f, 1f);
 		int posCase = Random.Range(0, 4);
-		int enemyCase = Random.Range(0, enemys.Length);
+		int enemyCase = Random.Range(0, enemies.Length);
 
 		switch (posCase)
 		{
 			case 0:
-				if (AB) Instantiate(enemys[enemyCase], position2D + A + (B - A) * posPercent, Quaternion.identity, enemyParent);
+				if (AB) Instantiate(enemies[enemyCase], position2D + A + (B - A) * posPercent, Quaternion.identity, enemyParent);
 				break;
 
 			case 1:
-				if (BC) Instantiate(enemys[enemyCase], position2D + B + (C - B) * posPercent, Quaternion.identity, enemyParent);
+				if (BC) Instantiate(enemies[enemyCase], position2D + B + (C - B) * posPercent, Quaternion.identity, enemyParent);
 				break;
 
 			case 2:
-				if (CD) Instantiate(enemys[enemyCase], position2D + C + (D - C) * posPercent, Quaternion.identity, enemyParent);
+				if (CD) Instantiate(enemies[enemyCase], position2D + C + (D - C) * posPercent, Quaternion.identity, enemyParent);
 				break;
 
 			case 3:
-				if (DA) Instantiate(enemys[enemyCase], position2D + D + (A - D) * posPercent, Quaternion.identity, enemyParent);
+				if (DA) Instantiate(enemies[enemyCase], position2D + D + (A - D) * posPercent, Quaternion.identity, enemyParent);
 				break;
 
 			default:

@@ -10,7 +10,7 @@ public class CameraMovment : MonoBehaviour
     void Update()
     {
 		if (active) transform.position += new Vector3(0, speed * Time.deltaTime, 0);
-		else if (Player.p.playerOne.transform.position.y > transform.position.y) active = true;
+		else if (Players.p.playerOne.transform.position.y > transform.position.y) active = true;
 	}
 
 	public void Stop ()

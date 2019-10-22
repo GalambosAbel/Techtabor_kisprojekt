@@ -20,15 +20,15 @@ public class Health : MonoBehaviour
 
 	void Start()
 	{
-		if (Player.p.playerCount == 0)
+		if (Players.p.playerCount == 0)
 		{
-			Player.p.playerOne = gameObject;
-			Player.p.playerCount++;
+			Players.p.playerOne = gameObject;
+			Players.p.playerCount++;
 		}
-		else if (Player.p.playerCount == 1)
+		else if (Players.p.playerCount == 1)
 		{
-			Player.p.playerTwo = gameObject;
-			Player.p.playerCount++;
+			Players.p.playerTwo = gameObject;
+			Players.p.playerCount++;
 		}
 		else
 		{

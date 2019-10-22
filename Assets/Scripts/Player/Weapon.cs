@@ -19,7 +19,7 @@ public class Weapon : MonoBehaviour
 
     void Shoot()
     {
-        if (GetComponent<Ammunition>().Shooting())
+        if (GetComponent<Ammunition>().CanShoot())
         {
             Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mouse.z = 0;

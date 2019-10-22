@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Players : MonoBehaviour
 {
-	public static Player p;
+	public static Players p;
 	public  GameObject playerOne;
 	public  GameObject playerTwo;
 	public int playerCount;
+
+	public int money;
 
 	void Awake()
 	{

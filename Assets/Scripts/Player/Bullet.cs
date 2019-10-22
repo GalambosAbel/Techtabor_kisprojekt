@@ -17,7 +17,7 @@ public class Bullet : MonoBehaviour
 
 	void Update()
 	{
-        Vector3 p = Player.p.playerOne.transform.position;
+        Vector3 p = Players.p.playerOne.transform.position;
         Vector3 v = transform.position;
 		if (v.x > p.x + despawnDistance || v.x < p.x - despawnDistance 
             || v.y > p.y + despawnDistance || v.y < p.y - despawnDistance)

@@ -25,7 +25,7 @@ public class EnemyShooting : MonoBehaviour
     void Shoot()
     {
         
-        Vector3 p = Player.p.playerOne.transform.position;
+        Vector3 p = Players.p.playerOne.transform.position;
         Vector3 bulletSpawnPoint = transform.position + (p - transform.position).normalized * spawnPointMultiplier;
         Instantiate(bullet, bulletSpawnPoint, transform.rotation);
     }

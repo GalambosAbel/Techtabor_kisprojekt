@@ -20,7 +20,7 @@ public class SkyKnight : MonoBehaviour
 
     void Awake()
     {
-        target = Player.p.playerOne.transform;
+        target = Players.p.playerOne.transform;
         seeker = GetComponent<Seeker>();
         targetPos = transform.position;
         seeker.target = targetPos;
@@ -102,16 +102,17 @@ public class SkyKnight : MonoBehaviour
     {
         if (col.tag == "bullet")
         {
-            Weapon weapon = Player.p.playerOne.GetComponent<Weapon>();
+            Weapon weapon = Players.p.playerOne.GetComponent<Weapon>();
             HP -= weapon.damage;
         }
         if (HP <= 0)
         {
-            Die();
+			Players.p.money++;
+			Die();
         }
     }
 
-    void Die()
+	void Die()
     {
 		Destroy(gameObject);
 		GameObject a = Instantiate(deathAnim, transform.position, transform.rotation);

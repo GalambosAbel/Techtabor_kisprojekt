@@ -10,9 +10,9 @@ public class Score : MonoBehaviour
 
     void Update()
     {
-        if(score < Player.p.playerOne.transform.position.y)
+        if(score < Players.p.playerOne.transform.position.y)
         {
-            score = Mathf.RoundToInt(Player.p.playerOne.transform.position.y);
+            score = Mathf.RoundToInt(Players.p.playerOne.transform.position.y);
         }
         GetComponent<Text>().text = (score-111).ToString();
     }

@@ -17,7 +17,7 @@ public class Ammunition : MonoBehaviour
         ammo.text = maxAmmunition.ToString();
     }
 
-    public bool Shooting()
+    public bool CanShoot()
     {
         if (magazineCurrent > 0)
         {
