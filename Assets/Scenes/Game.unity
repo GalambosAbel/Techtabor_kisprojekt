@@ -525,8 +525,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d753e0914637e418dc320722c449f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxAmmunition: 1000
-  magazineCurrent: 1000
+  maxAmmunition: 50
+  magazineCurrent: 50
   ammoText: {fileID: 829059339}
   magazineText: {fileID: 922702778}
 --- !u!95 &125394482

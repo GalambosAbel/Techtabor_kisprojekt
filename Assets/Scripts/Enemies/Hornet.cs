@@ -80,7 +80,7 @@ public class Hornet : MonoBehaviour
         }
         if(HP <= 0)
         {
-			Players.p.money++;
+			Players.p.money += 3;
 			Die();
         }
     }
