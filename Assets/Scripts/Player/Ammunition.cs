@@ -27,28 +27,4 @@ public class Ammunition : MonoBehaviour
         }
         return false;
     }
-
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            Reload();
-        }
-    }
-
-    void Reload()
-    {
-        if(magazineSize-magazineCurrent <= maxAmmunition)
-        {
-            maxAmmunition -= magazineSize - magazineCurrent;
-            magazineCurrent = magazineSize;
-        }
-        else
-        {
-            magazineCurrent += maxAmmunition;
-            maxAmmunition = 0;
-        }
-        magazine.text = magazineCurrent.ToString();
-        ammo.text = maxAmmunition.ToString();
-    }
 }

@@ -11,6 +11,7 @@ public class LevelGenerator : MonoBehaviour
 	public GameObject background;
 	public GameObject checkpoint;
     public GameObject timeMachine;
+	public GameObject shop;
 	float highestSectionY;
 
 	void Awake()
@@ -39,6 +40,7 @@ public class LevelGenerator : MonoBehaviour
 	{
 		GetComponent<EnemySpawner>().StopSpawn();
 		GetComponent<CameraMovment>().Stop();
+		shop.GetComponent<Shop>().TeleportToShop();
 		float y = transform.position.y - Camera.main.orthographicSize + background.transform.localScale.y / 200;
 		background.transform.position = new Vector3(transform.position.x, y, transform.position.z);
 		for (int i = 0; i < checkPointHeight - 1; i++)
@@ -47,7 +49,6 @@ public class LevelGenerator : MonoBehaviour
 		}
 		SpawnCheckpoint();
 		OnCheckpointLoaded();
-        Players.p.playerOne.GetComponent<Health>().FullHeal();
         timeMachine.GetComponent<LevelSpeed>().gameSpeed += 0.1f;
     }
 

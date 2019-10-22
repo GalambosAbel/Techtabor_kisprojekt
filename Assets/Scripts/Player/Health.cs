@@ -47,11 +47,6 @@ public class Health : MonoBehaviour
             timeUntilInvulnerable -= Time.deltaTime;
 			sr.color = sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1 - timeUntilInvulnerable / startTimeUInvul / 2);
 		}
-        
-        if (Input.GetKeyDown(KeyCode.K) && hp < max)
-        {
-            Heal(10);
-        }
         healthBar.transform.localScale = new Vector3(hp/100, healthBar.transform.localScale.y, 1);
 
     }
@@ -86,7 +81,6 @@ public class Health : MonoBehaviour
                 hp -= dmg;
             }
             timeUntilInvulnerable = startTimeUInvul;
-			SpriteRenderer sr = GetComponent<SpriteRenderer>();
         }
     }
 
@@ -100,11 +94,7 @@ public class Health : MonoBehaviour
         isDead = true;
         SceneManager.LoadScene("Menu");
     }
-    public void FullHeal()
-    {
-        hp = 100;
-        healthBar.transform.localScale = new Vector3(1, healthBar.transform.localScale.y, 1);
-    }
+
     void FireDamage()
     {
         if (hp > 0)
