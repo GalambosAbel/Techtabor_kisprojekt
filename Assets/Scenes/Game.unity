@@ -1155,6 +1155,7 @@ MonoBehaviour:
   enemies:
   - {fileID: 3771863331971541829, guid: 6604a65a37ee91c45a1afafd3a170411, type: 3}
   - {fileID: 2137737061339322992, guid: 5dadc0b6c2b7361449c34a7e9331dab8, type: 3}
+  - {fileID: 8592890772019715263, guid: 4bbe78e1ab3c17a4a818747001ceb2e5, type: 3}
   enemyParent: {fileID: 1532731003}
   spawnDelay: 5
 --- !u!114 &519420035

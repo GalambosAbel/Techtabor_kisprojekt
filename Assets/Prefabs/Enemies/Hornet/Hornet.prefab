@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 45
+  bounty: 4
   targetTransform: {fileID: 0}
   speed: 50
   attackPosUp: {fileID: 1440985469005950531}

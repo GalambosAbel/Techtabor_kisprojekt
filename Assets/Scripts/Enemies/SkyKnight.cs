@@ -16,6 +16,7 @@ public class SkyKnight : MonoBehaviour
     bool left = true;
     Vector2 newVelocity;
     public int HP;
+	public int bounty;
 	public GameObject deathAnim;
 
     void Awake()
@@ -107,7 +108,7 @@ public class SkyKnight : MonoBehaviour
         }
         if (HP <= 0)
         {
-			Players.p.money += 6;
+			Players.p.money += bounty;
 			Die();
         }
     }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Hornet : MonoBehaviour
+public class DrBoom : MonoBehaviour
 {
 	public int HP;
 	public int bounty;
@@ -20,15 +20,9 @@ public class Hornet : MonoBehaviour
 	#endregion
 
 	#region attackVars
-	public Transform attackPosUp;
-	public Transform attackPosDown;
-	public float attackRange;
-	public float timeBetweenAttack;
-	float timeUntilAttack;
-	bool ableToAttack;
 	public LayerMask players;
+	public float attackRange;
 	public int damage;
-	public GameObject attackAnim;
 	#endregion
 
 	public GameObject deathAnim;
@@ -46,15 +40,6 @@ public class Hornet : MonoBehaviour
 	{
 		if (seeker != null) seeker.target = targetTransform.position;
 		GoTowards(goalPos);
-		if (ableToAttack)
-		{
-			AttackUp();
-		}
-		else
-		{
-			timeUntilAttack -= Time.deltaTime;
-			if (timeUntilAttack <= 0) ableToAttack = true;
-		}
 
 		float avoidPlatformX;
 		float avoidPlatformY;
@@ -65,28 +50,31 @@ public class Hornet : MonoBehaviour
 		transform.position += new Vector3(avoidPlatformX, avoidPlatformY, 0);
 
 		lastPos = transform.position;
+
+		Attack();
 	}
 
-	void SetGoal (Vector3 _goalPos)
+	void SetGoal(Vector3 _goalPos)
 	{
 		goalPos = _goalPos;
 	}
 
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        if(col.tag == "bullet")
-        {
-            Weapon weapon = Players.p.playerOne.GetComponent<Weapon>();
-            HP -= weapon.damage;
-        }
-        if(HP <= 0)
-        {
+	void OnTriggerEnter2D(Collider2D col)
+	{
+		if (col.tag == "bullet")
+		{
+			Weapon weapon = Players.p.playerOne.GetComponent<Weapon>();
+			HP -= weapon.damage;
+		}
+
+		if (HP <= 0)
+		{
 			Players.p.money += bounty;
 			Die();
-        }
-    }
+		}
+	}
 
-	void GoTowards (Vector3 goal)
+	void GoTowards(Vector3 goal)
 	{
 		currentSpeed = speed * Time.deltaTime;
 		newVelocity.x = (goal - transform.position).normalized.x * currentSpeed;
@@ -101,56 +89,26 @@ public class Hornet : MonoBehaviour
 		}
 	}
 
-    void Die()
-    {
+	void Die()
+	{
 		Destroy(gameObject);
 		GameObject a = Instantiate(deathAnim, transform.position, transform.rotation);
 		Destroy(a, 0.25f);
 	}
 
-    void AttackUp()
-    {
-		Collider2D[] playersInRange = Physics2D.OverlapCircleAll(attackPosUp.position, attackRange, players);
-		if (playersInRange.Length == 0)
-		{
-			AttackDown();
-			return;
-		}
-		ableToAttack = false;
-		timeUntilAttack = timeBetweenAttack;
-		AnimateAttack(attackPosUp);
-		for (int i = 0; i < playersInRange.Length; i++)
-        {
-            playersInRange[i].GetComponent<Health>().Shot(damage);
-		}
-	}
-
-	void AttackDown()
+	void Attack()
 	{
-		Collider2D[] playersInRange = Physics2D.OverlapCircleAll(attackPosDown.position, attackRange, players);
-		if (playersInRange.Length == 0)
-		{
-			return;
-		}
-		ableToAttack = false;
-		timeUntilAttack = timeBetweenAttack;
-		AnimateAttack(attackPosDown);
+		Collider2D[] playersInRange = Physics2D.OverlapCircleAll(transform.position, attackRange, players);
 		for (int i = 0; i < playersInRange.Length; i++)
 		{
 			playersInRange[i].GetComponent<Health>().Shot(damage);
 		}
-	}
-
-	void AnimateAttack (Transform pos)
-	{
-		GameObject anim = Instantiate(attackAnim, pos.position, pos.rotation);
-		Destroy(anim, 0.333333f);
+		if (playersInRange.Length > 0) Die();
 	}
 
 	void OnDrawGizmos()
-    {
+	{
 		Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(attackPosUp.position, attackRange);
-		Gizmos.DrawWireSphere(attackPosDown.position, attackRange);
+		Gizmos.DrawWireSphere(transform.position, attackRange);
 	}
 }
