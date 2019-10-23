@@ -1,14 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class PlayerPref : MonoBehaviour
+public class Controls : MonoBehaviour
 {
+    public Dictionary<string, KeyCode> keys = new Dictionary<string, KeyCode>();
+    public Text jump, left, right, shoot,leaveShop;
+
     void Start()
     {
-        PlayerPrefs.SetInt("Jump", (int)KeyCode.Space);
-        PlayerPrefs.SetInt("Left", (int)KeyCode.A);
-        PlayerPrefs.SetInt("Right", (int)KeyCode.D);
-        PlayerPrefs.SetInt("Shoot", (int)KeyCode.Mouse0);
+        keys.Add("Jump", (KeyCode)PlayerPrefs.GetInt("Jump"));
+        keys.Add("Left", (KeyCode)PlayerPrefs.GetInt("Left"));
+        keys.Add("Right", (KeyCode)PlayerPrefs.GetInt("Right"));
+        keys.Add("Shoot", (KeyCode)PlayerPrefs.GetInt("Shoot"));
+        keys.Add("LeaveShop", (KeyCode)PlayerPrefs.GetInt("LeaveShop"));
+        jump.text = keys["Jump"].ToString();
+        left.text = keys["Left"].ToString();
+        right.text = keys["Right"].ToString();
+        shoot.text = keys["Shoot"].ToString();
+        leaveShop.text = keys["LeaveShop"].ToString();
     }
+
 }
