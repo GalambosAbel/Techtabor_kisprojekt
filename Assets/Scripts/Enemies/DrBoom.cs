@@ -91,6 +91,7 @@ public class DrBoom : MonoBehaviour
 
 	void Die()
 	{
+		FindObjectOfType<AudioManager>().Play("Explode");
 		Destroy(gameObject);
 		GameObject a = Instantiate(deathAnim, transform.position, transform.rotation);
 		Destroy(a, 0.25f);

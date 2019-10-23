@@ -143,6 +143,9 @@ MonoBehaviour:
   startTimeBtwAttack: 2
   bullet: {fileID: 5566086981609118197, guid: 774c744bfc0c09a47b277ed1e4dd882b, type: 3}
   spawnPointMultiplier: 15
+  blockingMask:
+    serializedVersion: 2
+    m_Bits: 16640
 --- !u!61 &84575493
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -78,7 +78,8 @@ public class Hornet : MonoBehaviour
         {
             Weapon weapon = Players.p.playerOne.GetComponent<Weapon>();
             HP -= weapon.damage;
-        }
+			FindObjectOfType<AudioManager>().Play("EnemyHurt");
+		}
         if(HP <= 0)
         {
 			Players.p.money += bounty;
@@ -143,6 +144,7 @@ public class Hornet : MonoBehaviour
 
 	void AnimateAttack (Transform pos)
 	{
+		FindObjectOfType<AudioManager>().Play("Attack");
 		GameObject anim = Instantiate(attackAnim, pos.position, pos.rotation);
 		Destroy(anim, 0.333333f);
 	}

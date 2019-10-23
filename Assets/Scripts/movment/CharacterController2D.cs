@@ -102,6 +102,7 @@ public class CharacterController2D : MonoBehaviour
                 m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
                 ableToDoubleJump = false;
             }
+			FindObjectOfType<AudioManager>().Play("Jump");
 		}
 	}
 

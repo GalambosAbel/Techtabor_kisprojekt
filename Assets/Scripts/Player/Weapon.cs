@@ -21,7 +21,8 @@ public class Weapon : MonoBehaviour
     {
         if (GetComponent<Ammunition>().CanShoot())
         {
-            Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+			FindObjectOfType<AudioManager>().Play("PlayerShoot");
+			Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mouse.z = 0;
             Vector3 bulletSpawnPoint = transform.position + (mouse - transform.position).normalized * spawnPointMultiplier;
             Instantiate(bullet, bulletSpawnPoint, transform.rotation);

@@ -31,8 +31,6 @@ public class SkyKnight : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q)) targetPos = transform.position;
-
         SetTargetPosition();
         if (seeker != null) seeker.target = targetPos;
         if (Mathf.Abs((transform.position - target.position).magnitude) > minDistance) GoTowards(goalPos);
@@ -90,22 +88,14 @@ public class SkyKnight : MonoBehaviour
         return new Vector3(X, Y, 0);
     }
 
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(target.position, minDistance);
-        Gizmos.DrawWireSphere(target.position, maxDistance);
-        Gizmos.color = Color.magenta;
-        Gizmos.DrawCube(targetPos, Vector3.one * 10);
-    }
-
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.tag == "bullet")
         {
             Weapon weapon = Players.p.playerOne.GetComponent<Weapon>();
             HP -= weapon.damage;
-        }
+			FindObjectOfType<AudioManager>().Play("EnemyHurt");
+		}
         if (HP <= 0)
         {
 			Players.p.money += bounty;
@@ -119,4 +109,14 @@ public class SkyKnight : MonoBehaviour
 		GameObject a = Instantiate(deathAnim, transform.position, transform.rotation);
 		Destroy(a, 0.33333333333f);
 	}
+
+	void OnDrawGizmos()
+	{
+		Gizmos.color = Color.cyan;
+		Gizmos.DrawWireSphere(target.position, minDistance);
+		Gizmos.DrawWireSphere(target.position, maxDistance);
+		Gizmos.color = Color.magenta;
+		Gizmos.DrawCube(targetPos, Vector3.one * 10);
+	}
+
 }

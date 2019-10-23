@@ -80,7 +80,8 @@ public class Health : MonoBehaviour
             {
                 hp -= dmg;
             }
-            timeUntilInvulnerable = startTimeUInvul;
+			FindObjectOfType<AudioManager>().Play("Hurt");
+			timeUntilInvulnerable = startTimeUInvul;
         }
     }
 
