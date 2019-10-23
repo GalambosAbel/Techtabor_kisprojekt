@@ -14,7 +14,7 @@ public class DrBoom : MonoBehaviour
 	float currentSpeed;
 	public float speed;
 	Vector2 newVelocity;
-	public Vector3 goalPos;
+	Vector3 goalPos;
 	Vector3 lastPos;
 	bool left = true;
 	#endregion
