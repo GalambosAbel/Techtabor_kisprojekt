@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Controlls : MonoBehaviour
 {
-    // Start is called before the first frame update
+    string alma = "a";
+    public string joystickButton = "JoystickButton9";
+    public KeyCode thisKeyCode = (KeyCode)System.Enum.Parse();
     void Start()
-    {
+    {        
         
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (Input.GetButtonDown(alma))
+        {
+            Debug.Log("asd");
+        }
     }
 }
