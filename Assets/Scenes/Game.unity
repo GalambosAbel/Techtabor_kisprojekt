@@ -2634,8 +2634,8 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Main
-    clip: {fileID: 8300000, guid: 88274f26f7752b046b621d38893809a6, type: 3}
-    volume: 0.4
+    clip: {fileID: 8300000, guid: a5652d269107b1a408b1761b59474053, type: 3}
+    volume: 1
     loop: 1
     source: {fileID: 0}
 --- !u!224 &1417262547
