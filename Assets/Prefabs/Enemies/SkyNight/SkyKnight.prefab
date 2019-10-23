@@ -110,6 +110,7 @@ MonoBehaviour:
   maxDistance: 120
   speed: 70
   HP: 30
+  bounty: 6
   deathAnim: {fileID: 682873845667309989, guid: 846b6141d3a544440a92c8211663b29f,
     type: 3}
 --- !u!114 &2137737061339323004
