@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Controls : MonoBehaviour
 {
     public Dictionary<string, KeyCode> keys = new Dictionary<string, KeyCode>();
-    public Text jump, left, right, shoot;
+    public Text jump, left, right, shoot,leaveShop;
 
     void Start()
     {
@@ -14,10 +14,12 @@ public class Controls : MonoBehaviour
         keys.Add("Left", (KeyCode)PlayerPrefs.GetInt("Left"));
         keys.Add("Right", (KeyCode)PlayerPrefs.GetInt("Right"));
         keys.Add("Shoot", (KeyCode)PlayerPrefs.GetInt("Shoot"));
+        keys.Add("LeaveShop", (KeyCode)PlayerPrefs.GetInt("LeaveShop"));
         jump.text = keys["Jump"].ToString();
         left.text = keys["Left"].ToString();
         right.text = keys["Right"].ToString();
         shoot.text = keys["Shoot"].ToString();
+        leaveShop.text = keys["LeaveShop"].ToString();
     }
 
 }
