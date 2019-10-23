@@ -20,7 +20,7 @@ public class AudioManager : MonoBehaviour
 
 	void Start()
     {
-        
+		Play("Main");
     }
 
 	public void Play (string clipName)
