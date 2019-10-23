@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Controlls : MonoBehaviour
 {
-    string alma = "a";
+    public string alma = "a";
     public string joystickButton = "JoystickButton9";
-    public KeyCode thisKeyCode = (KeyCode)System.Enum.Parse();
+    public KeyCode thisKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), "asd");
     void Start()
     {        
         
