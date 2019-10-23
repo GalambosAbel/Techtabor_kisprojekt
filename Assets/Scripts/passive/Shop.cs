@@ -28,13 +28,16 @@ public class Shop : MonoBehaviour
 
 	public Camera shopCamera;
 
-    void FixedUpdate()
-    {
-        if (Input.GetKeyDown(KeyCode.L))
+	void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.L))
 		{
 			LeaveShop();
 		}
+	}
 
+	void FixedUpdate()
+    {
 		if (isShopping)
 		{
 			if(Players.p.playerOne != null)
