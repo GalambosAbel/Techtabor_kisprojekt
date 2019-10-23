@@ -10,7 +10,7 @@ public class Score : MonoBehaviour
 
     void Update()
     {
-        if(score < Players.p.playerOne.transform.position.y)
+        if(score < Players.p.playerOne.transform.position.y - 111)
         {
             score = Mathf.RoundToInt(Players.p.playerOne.transform.position.y) - 111;
         }
