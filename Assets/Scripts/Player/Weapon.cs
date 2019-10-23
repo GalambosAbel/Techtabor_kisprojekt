@@ -10,7 +10,7 @@ public class Weapon : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetKey((KeyCode)PlayerPrefs.GetInt("Shoot")))
         {
             Shoot();
             

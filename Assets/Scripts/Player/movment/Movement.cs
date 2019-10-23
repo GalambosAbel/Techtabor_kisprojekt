@@ -16,7 +16,6 @@ public class Movement : MonoBehaviour
     void Update()
     {
         horizontalMove = 0;
-        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         if (Input.GetKey((KeyCode)PlayerPrefs.GetInt("Left")))
         {
             horizontalMove = -runSpeed;
