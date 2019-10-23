@@ -5,8 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+	void Awake()
+	{
+		Screen.fullScreen = false;
+	}
 
-    public void StartGame()
+	public void StartGame()
     {
         SceneManager.LoadScene("Game");
     }
