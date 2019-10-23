@@ -16,15 +16,15 @@ public class Movement : MonoBehaviour
     void Update()
     {
         horizontalMove = 0;
-        if (Input.GetKey((KeyCode)PlayerPrefs.GetInt("Left")))
+        if (Input.GetKey((KeyCode)PlayerPrefs.GetInt("Left",97)))
         {
             horizontalMove = -runSpeed;
         }
-        if (Input.GetKey((KeyCode)PlayerPrefs.GetInt("Right")))
+        if (Input.GetKey((KeyCode)PlayerPrefs.GetInt("Right",100)))
         {
             horizontalMove = runSpeed;
         }
-        if (Input.GetKeyDown((KeyCode)PlayerPrefs.GetInt("Jump")))
+        if (Input.GetKeyDown((KeyCode)PlayerPrefs.GetInt("Jump",32)))
         {
             jump = true;
         }

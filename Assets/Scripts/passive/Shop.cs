@@ -30,7 +30,7 @@ public class Shop : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.L))
+		if (Input.GetKeyDown((KeyCode)PlayerPrefs.GetInt("LeaveShop",108)))
 		{
 			LeaveShop();
 		}
