@@ -505,7 +505,7 @@ GameObject:
   - component: {fileID: 572328484}
   - component: {fileID: 572328483}
   m_Layer: 5
-  m_Name: JumpButton
+  m_Name: Jump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -573,7 +573,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 572328484}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1075896508}
+        m_MethodName: ChangeKey
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 572328481}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &572328484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -623,7 +634,7 @@ GameObject:
   - component: {fileID: 618712915}
   - component: {fileID: 618712914}
   m_Layer: 5
-  m_Name: LeftButton
+  m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -691,7 +702,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 618712915}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1075896508}
+        m_MethodName: ChangeKey
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 618712912}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &618712915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -741,7 +763,7 @@ GameObject:
   - component: {fileID: 623385181}
   - component: {fileID: 623385180}
   m_Layer: 5
-  m_Name: RightButton
+  m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -809,7 +831,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 623385181}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1075896508}
+        m_MethodName: ChangeKey
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 623385178}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &623385181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1180,7 +1213,7 @@ GameObject:
   - component: {fileID: 1048635669}
   - component: {fileID: 1048635668}
   m_Layer: 5
-  m_Name: LeaveShopButton
+  m_Name: LeaveShop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1248,7 +1281,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1048635669}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1075896508}
+        m_MethodName: ChangeKey
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1048635666}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1048635669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1387,6 +1431,7 @@ MonoBehaviour:
   right: {fileID: 322122638}
   shoot: {fileID: 1342355919}
   leaveShop: {fileID: 1700279386}
+  currentKey: {fileID: 0}
 --- !u!1 &1146104578
 GameObject:
   m_ObjectHideFlags: 0
@@ -1939,7 +1984,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Space
+  m_Text: L
 --- !u!222 &1700279387
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1961,7 +2006,7 @@ GameObject:
   - component: {fileID: 1950426703}
   - component: {fileID: 1950426702}
   m_Layer: 5
-  m_Name: ShootButton
+  m_Name: Shoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2029,7 +2074,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1950426703}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1075896508}
+        m_MethodName: ChangeKey
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1950426700}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1950426703
 MonoBehaviour:
   m_ObjectHideFlags: 0
