@@ -11,11 +11,11 @@ public class Controls : MonoBehaviour
 
     void Start()
     {
-        keys.Add("Jump", (KeyCode)PlayerPrefs.GetInt("Jump"));
-        keys.Add("Left", (KeyCode)PlayerPrefs.GetInt("Left"));
-        keys.Add("Right", (KeyCode)PlayerPrefs.GetInt("Right"));
-        keys.Add("Shoot", (KeyCode)PlayerPrefs.GetInt("Shoot"));
-        keys.Add("LeaveShop", (KeyCode)PlayerPrefs.GetInt("LeaveShop"));
+        keys.Add("Jump", (KeyCode)PlayerPrefs.GetInt("Jump",32));
+        keys.Add("Left", (KeyCode)PlayerPrefs.GetInt("Left",97));
+        keys.Add("Right", (KeyCode)PlayerPrefs.GetInt("Right",100));
+        keys.Add("Shoot", (KeyCode)PlayerPrefs.GetInt("Shoot",323));
+        keys.Add("LeaveShop", (KeyCode)PlayerPrefs.GetInt("LeaveShop",108));
         jump.text = keys["Jump"].ToString();
         left.text = keys["Left"].ToString();
         right.text = keys["Right"].ToString();
