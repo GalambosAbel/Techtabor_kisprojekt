@@ -8,7 +8,6 @@ public class Health : MonoBehaviour
 	SpriteRenderer sr;
     public float hp;
     public int max;
-    public bool isDead;
     public float timeUntilInvulnerable;
     public float startTimeUInvul;
     public GameObject healthBar;
@@ -47,7 +46,7 @@ public class Health : MonoBehaviour
             timeUntilInvulnerable -= Time.deltaTime;
 			sr.color = sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1 - timeUntilInvulnerable / startTimeUInvul / 2);
 		}
-        healthBar.transform.localScale = new Vector3(hp/100, healthBar.transform.localScale.y, 1);
+        healthBar.transform.localScale = new Vector3(hp/max, healthBar.transform.localScale.y, 1);
 
     }
     private void OnTriggerEnter2D(Collider2D col)
@@ -96,8 +95,8 @@ public class Health : MonoBehaviour
 
     void Die()
     {
-        isDead = true;
-        SceneManager.LoadScene("Menu");
+        Players.p.dead = true;
+		FindObjectOfType<MenuScript>().Died();
     }
 
     void FireDamage()

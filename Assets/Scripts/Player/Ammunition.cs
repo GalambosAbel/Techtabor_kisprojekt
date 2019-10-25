@@ -24,6 +24,7 @@ public class Ammunition : MonoBehaviour
 
 	public bool CanShoot()
     {
+		if (Players.p.paused) return false;
         if (magazineCurrent > 0)
         {
             magazineCurrent--;

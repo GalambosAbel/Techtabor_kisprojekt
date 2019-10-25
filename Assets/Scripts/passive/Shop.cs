@@ -130,7 +130,7 @@ public class Shop : MonoBehaviour
 
 	public void LeaveShop ()
 	{
-		if (!isShopping) return;
+		if (!isShopping || Players.p.paused) return;
 		if (Players.p.playerOne != null)
 		{
 			Players.p.playerOne.transform.position = p1Pos;

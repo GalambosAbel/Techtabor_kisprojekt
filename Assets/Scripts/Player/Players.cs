@@ -11,6 +11,9 @@ public class Players : MonoBehaviour
 
 	public int money;
 
+	public bool paused = false;
+	public bool dead = false;
+
 	void Awake()
 	{
 		if(p == null)

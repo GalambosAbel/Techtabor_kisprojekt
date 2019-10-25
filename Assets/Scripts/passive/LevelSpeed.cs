@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class LevelSpeed : MonoBehaviour
 {
-    public float gameSpeed;
+	public float gameSpeed;
 
-    private void Update()
+	void Start()
+	{
+		Players.p.paused = false;
+		Time.timeScale = gameSpeed;
+	}
+
+	void Update()
     {
-        Time.timeScale = gameSpeed;
+		if (!Players.p.paused) Time.timeScale = gameSpeed;
     }
 }
