@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
 	void Awake()
 	{
-		Screen.fullScreen = false;
+		Screen.SetResolution(512, 910, false);
 	}
 
 	public void StartGame()
