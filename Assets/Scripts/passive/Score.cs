@@ -14,6 +14,10 @@ public class Score : MonoBehaviour
         {
             score = Mathf.RoundToInt(Players.p.playerOne.transform.position.y) - 111;
         }
+        if (score < Players.p.playerTwo.transform.position.y - 111)
+        {
+            score = Mathf.RoundToInt(Players.p.playerTwo.transform.position.y) - 111;
+        }
         GetComponent<Text>().text = (score).ToString();
         if(score > PlayerPrefs.GetInt("HighScore"))
         {
