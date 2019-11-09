@@ -1412,8 +1412,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f1b7f383821bf9488d7240273860927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerOne: {fileID: 0}
-  playerTwo: {fileID: 0}
+  playerOne: {fileID: 125394471}
+  playerTwo: {fileID: 1072907980}
   playerCount: 0
   money: 0
   paused: 0
