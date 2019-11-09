@@ -17,10 +17,10 @@ public class Bullet : MonoBehaviour
 
 	void Update()
 	{
-        Vector3 p = Players.p.playerOne.transform.position;
+        Vector3 c = Camera.main.gameObject.transform.position;
         Vector3 v = transform.position;
-		if (v.x > p.x + despawnDistance || v.x < p.x - despawnDistance 
-            || v.y > p.y + despawnDistance || v.y < p.y - despawnDistance)
+		if (v.x > c.x + despawnDistance || v.x < c.x - despawnDistance 
+            || v.y > c.y + despawnDistance || v.y < c.y - despawnDistance)
 		{
 			Destroy(gameObject);
 		}
