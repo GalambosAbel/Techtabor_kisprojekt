@@ -70,12 +70,15 @@ public class SkyKnight : MonoBehaviour
 
     void SetTargetPosition()
     {
-        if (transform.position == targetPos)
+		Node myNode = NodeGrid.instance.NodeFromWorldPoint(transform.position);
+		Node targetNode = NodeGrid.instance.NodeFromWorldPoint(targetPos);
+
+		if (Mathf.Abs(myNode.gridX - targetNode.gridX) < 2 && Mathf.Abs(myNode.gridY - targetNode.gridY) < 2)
         {
             targetPos = GetNewTargetPosition();
             targetPos = target.position + (targetPos - target.position).normalized * Random.Range(minDistance, maxDistance);
-        }
-        else
+		}
+		else
         {
             targetPos += target.position - playerLastPos;
         }
@@ -85,7 +88,7 @@ public class SkyKnight : MonoBehaviour
     {
         float X = Random.Range(-128f, 128f) + Camera.main.transform.position.x;
         float Y = Random.Range(-Camera.main.orthographicSize, Camera.main.orthographicSize) + Camera.main.transform.position.y;
-        return new Vector3(X, Y, 0);
+		return new Vector3(X, Y, 0);
     }
 
     void OnTriggerEnter2D(Collider2D col)

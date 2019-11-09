@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
-  updateTime: 0
+  updateTime: 0.1
 --- !u!114 &8592890772019715257
 MonoBehaviour:
   m_ObjectHideFlags: 0

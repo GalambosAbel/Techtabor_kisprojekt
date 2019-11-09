@@ -14,6 +14,8 @@ public class NodeGrid : MonoBehaviour
 	float nodeDiameter;
 	int gridSizeX, gridSizeY;
 
+	public static NodeGrid instance;
+
 	void Awake()
 	{
 		//gridWorldSize = new Vector2(Screen.width, Screen.height);
@@ -22,6 +24,14 @@ public class NodeGrid : MonoBehaviour
 		gridSizeY = Mathf.RoundToInt(gridWorldSize.y / nodeDiameter);
 		//CreateGrid();
 		gridSize = gridSizeX + " * " + gridSizeY;
+		if (instance == null)
+		{
+			instance = this;
+		}
+		else
+		{
+			Debug.LogError("there are 2 nodegrids");
+		}
 	}
 
 	public int MaxSize
