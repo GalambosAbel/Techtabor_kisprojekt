@@ -7,6 +7,14 @@ public class MenuScript : MonoBehaviour
 {
 	public GameObject pauseMenu;
 	public GameObject deathMenu;
+    bool[] playersDead;
+    
+    void Start()
+    {
+        playersDead = new bool[2];
+        playersDead[0] = false;
+        playersDead[1] = false;
+    }
 
     void Update()
     {
@@ -52,11 +60,15 @@ public class MenuScript : MonoBehaviour
         SceneManager.LoadScene("Game");
     }
 
-	public void Died()
+	public void Died(int whichPlayer)
 	{
-		Players.p.paused = true;
-		pauseMenu.SetActive(false);
-		deathMenu.SetActive(true);
-		Time.timeScale = 0f;
+        playersDead[whichPlayer] = true;
+        if(playersDead[0] && playersDead[1])
+        {
+            Players.p.paused = true;
+            pauseMenu.SetActive(false);
+            deathMenu.SetActive(true);
+            Time.timeScale = 0f;
+        }
 	}
 }

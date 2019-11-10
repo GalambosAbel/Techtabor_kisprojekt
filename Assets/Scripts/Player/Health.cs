@@ -11,6 +11,7 @@ public class Health : MonoBehaviour
     public float timeUntilInvulnerable;
     public float startTimeUInvul;
     public GameObject healthBar;
+    int whichPlayer;
 
 	void Awake()
 	{
@@ -23,11 +24,13 @@ public class Health : MonoBehaviour
 		{
 			Players.p.playerOne = gameObject;
 			Players.p.playerCount++;
+            whichPlayer = 0;
 		}
 		else if (Players.p.playerCount == 1)
 		{
 			Players.p.playerTwo = gameObject;
 			Players.p.playerCount++;
+            whichPlayer = 1;
 		}
 		else
 		{
@@ -96,7 +99,8 @@ public class Health : MonoBehaviour
     void Die()
     {
         Players.p.dead = true;
-		FindObjectOfType<MenuScript>().Died();
+		FindObjectOfType<MenuScript>().Died(whichPlayer);
+        Destroy(gameObject);
     }
 
     void FireDamage()
