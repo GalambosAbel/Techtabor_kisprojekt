@@ -47,6 +47,11 @@ public class MenuScript : MonoBehaviour
 		SceneManager.LoadScene("Menu");
 	}
 
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene("Game");
+    }
+
 	public void Died()
 	{
 		Players.p.paused = true;
