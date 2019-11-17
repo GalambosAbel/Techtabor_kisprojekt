@@ -98,7 +98,6 @@ public class Health : MonoBehaviour
 
     void Die()
     {
-        Players.p.dead = true;
 		FindObjectOfType<MenuScript>().Died(whichPlayer);
         Destroy(gameObject);
     }

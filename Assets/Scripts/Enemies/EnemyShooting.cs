@@ -12,7 +12,7 @@ public class EnemyShooting : MonoBehaviour
 
 	void Update()
     {
-		if (timeBtwAttack <= 0 && LineOfSight(transform.position, Players.p.playerOne.transform.position, blockingMask))
+		if (timeBtwAttack <= 0 && LineOfSight(transform.position, GetComponent<SkyKnight>().targetTransform.position, blockingMask))
         {
             Shoot();
             timeBtwAttack = startTimeBtwAttack;
@@ -26,9 +26,9 @@ public class EnemyShooting : MonoBehaviour
     void Shoot()
     {
 		FindObjectOfType<AudioManager>().Play("EnemyShoot");
-		Vector3 p = Players.p.playerOne.transform.position;
+		Vector3 p = GetComponent<SkyKnight>().targetTransform.position;
         Vector3 bulletSpawnPoint = transform.position + (p - transform.position).normalized * spawnPointMultiplier;
-        Instantiate(bullet, bulletSpawnPoint, transform.rotation);
+        Instantiate(bullet, bulletSpawnPoint, transform.rotation, transform);
     }
 
 	bool LineOfSight (Vector3 from, Vector3 to, LayerMask block)

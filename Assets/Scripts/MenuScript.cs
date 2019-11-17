@@ -65,7 +65,9 @@ public class MenuScript : MonoBehaviour
         playersDead[whichPlayer] = true;
         if(playersDead[0] && playersDead[1])
         {
+			GetComponent<EnemySpawner>().StopSpawn();
             Players.p.paused = true;
+			Players.p.dead = true;
             pauseMenu.SetActive(false);
             deathMenu.SetActive(true);
             Time.timeScale = 0f;

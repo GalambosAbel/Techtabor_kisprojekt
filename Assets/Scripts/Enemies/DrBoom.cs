@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 public class DrBoom : MonoBehaviour
 {
@@ -30,7 +29,7 @@ public class DrBoom : MonoBehaviour
 	void Awake()
 	{
 		transform.position = new Vector3(transform.position.x, transform.position.y, 0);
-		targetTransform = Players.p.playerOne.transform;
+		GetNewTarget();
 		seeker = GetComponent<Seeker>();
 		seeker.target = targetTransform.position;
 		lastPos = transform.position;
@@ -38,6 +37,7 @@ public class DrBoom : MonoBehaviour
 
 	void Update()
 	{
+		if (targetTransform == null) GetNewTarget();
 		if (seeker != null) seeker.target = targetTransform.position;
 		GoTowards(goalPos);
 
@@ -57,6 +57,15 @@ public class DrBoom : MonoBehaviour
 	void SetGoal(Vector3 _goalPos)
 	{
 		goalPos = _goalPos;
+	}
+
+	void GetNewTarget()
+	{
+		if (targetTransform != null) return;
+		int index = Random.Range(1, Players.p.playerCount);
+
+		if (index == 1 && Players.p.playerOne != null) targetTransform = Players.p.playerOne.transform;
+		else if (Players.p.playerTwo != null) targetTransform = Players.p.playerTwo.transform;
 	}
 
 	void OnTriggerEnter2D(Collider2D col)
