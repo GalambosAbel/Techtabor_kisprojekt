@@ -20,6 +20,11 @@ public class Players : MonoBehaviour
 		{
 			p = this;
 		}
+        if(PlayerPrefs.GetInt("NumberOfPlayers") == 1)
+        {
+            FindObjectOfType<MenuScript>().Died(1);
+            Destroy(playerTwo);
+        }
 	}
 
 }

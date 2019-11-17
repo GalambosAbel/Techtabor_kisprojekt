@@ -1796,6 +1796,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 646301827}
   deathMenu: {fileID: 1014610208}
+  playersDead: 0000
 --- !u!1 &549102100
 GameObject:
   m_ObjectHideFlags: 0

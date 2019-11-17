@@ -7,15 +7,8 @@ public class MenuScript : MonoBehaviour
 {
 	public GameObject pauseMenu;
 	public GameObject deathMenu;
-    bool[] playersDead;
+    public bool[] playersDead;
     
-    void Start()
-    {
-        playersDead = new bool[2];
-        playersDead[0] = false;
-        playersDead[1] = false;
-    }
-
     void Update()
     {
 		if (Input.GetKeyDown(KeyCode.Escape))
