@@ -36,6 +36,7 @@ public class Health : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}
+		healthBar.transform.parent.parent.gameObject.SetActive(true);
 	}
 
 	void Update()
