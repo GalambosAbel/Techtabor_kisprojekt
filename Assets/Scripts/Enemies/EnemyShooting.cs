@@ -7,8 +7,8 @@ public class EnemyShooting : MonoBehaviour
     public float timeBtwAttack;
     public float startTimeBtwAttack;
     public GameObject bullet;
-    public float spawnPointMultiplier;
 	public LayerMask blockingMask;
+	public Transform bulletSpawnPoint;
 
 	void Update()
     {
@@ -26,9 +26,7 @@ public class EnemyShooting : MonoBehaviour
     void Shoot()
     {
 		FindObjectOfType<AudioManager>().Play("EnemyShoot");
-		Vector3 p = GetComponent<SkyKnight>().targetTransform.position;
-        Vector3 bulletSpawnPoint = transform.position + (p - transform.position).normalized * spawnPointMultiplier;
-        Instantiate(bullet, bulletSpawnPoint, transform.rotation, transform);
+        Instantiate(bullet, bulletSpawnPoint.position, transform.rotation, transform);
     }
 
 	bool LineOfSight (Vector3 from, Vector3 to, LayerMask block)

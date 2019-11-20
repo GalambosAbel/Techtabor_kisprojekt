@@ -1779,6 +1779,7 @@ MonoBehaviour:
   playerOne: {fileID: 125394471}
   playerTwo: {fileID: 1072907980}
   playerCount: 0
+  playersDead: 0000
   money: 0
   paused: 0
   dead: 0
@@ -1796,7 +1797,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 646301827}
   deathMenu: {fileID: 1014610208}
-  playersDead: 0000
 --- !u!1 &549102100
 GameObject:
   m_ObjectHideFlags: 0

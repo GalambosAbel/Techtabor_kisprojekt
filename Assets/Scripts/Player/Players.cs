@@ -5,9 +5,10 @@ using UnityEngine;
 public class Players : MonoBehaviour
 {
 	public static Players p;
-	public  GameObject playerOne;
-	public  GameObject playerTwo;
+	public GameObject playerOne;
+	public GameObject playerTwo;
 	public int playerCount;
+	public bool[] playersDead;
 
 	public int money;
 
@@ -16,15 +17,28 @@ public class Players : MonoBehaviour
 
 	void Awake()
 	{
-		if(p == null)
+		if (p == null)
 		{
 			p = this;
 		}
-        if(PlayerPrefs.GetInt("NumberOfPlayers") == 1)
-        {
-            FindObjectOfType<MenuScript>().Died(1);
-            Destroy(playerTwo);
-        }
+		if (PlayerPrefs.GetInt("NumberOfPlayers") == 1)
+		{
+			FindObjectOfType<MenuScript>().Died(1);
+			Destroy(playerTwo);
+		}
 	}
 
+
+	public int DeadPlayersCount
+	{
+		get
+		{
+			int returnValue = 0;
+			for(int i = 0; i < playersDead.Length; i++)
+			{
+				if (playersDead[i]) returnValue++; 
+			}
+			return returnValue;
+		}
+	}
 }

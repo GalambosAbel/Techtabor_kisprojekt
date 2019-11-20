@@ -7,7 +7,6 @@ public class MenuScript : MonoBehaviour
 {
 	public GameObject pauseMenu;
 	public GameObject deathMenu;
-    public bool[] playersDead;
     
     void Update()
     {
@@ -55,8 +54,8 @@ public class MenuScript : MonoBehaviour
 
 	public void Died(int whichPlayer)
 	{
-        playersDead[whichPlayer] = true;
-        if(playersDead[0] && playersDead[1])
+        Players.p.playersDead[whichPlayer] = true;
+        if(Players.p.playersDead[0] && Players.p.playersDead[1])
         {
 			GetComponent<EnemySpawner>().StopSpawn();
             Players.p.paused = true;

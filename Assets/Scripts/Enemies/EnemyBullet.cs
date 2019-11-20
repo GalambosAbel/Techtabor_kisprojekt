@@ -12,6 +12,7 @@ public class EnemyBullet : MonoBehaviour
     {
         Vector3 p = GetComponentInParent<SkyKnight>().targetTransform.position;
         rb.velocity = (p - transform.position).normalized * speed;
+		transform.rotation = Quaternion.FromToRotation(Vector3.up, p - transform.position);
     }
 
     void Update()
