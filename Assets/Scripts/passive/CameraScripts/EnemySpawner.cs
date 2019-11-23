@@ -29,13 +29,14 @@ public class EnemySpawner : MonoBehaviour
 
 	void Update ()
 	{
-		if (Players.p.playerOne.transform.position.y > transform.position.y) isSpawning = true;
+		if (Players.p.playerOne != null) if (Players.p.playerOne.transform.position.y > transform.position.y) isSpawning = true;
+		else if (Players.p.playerTwo != null) if (Players.p.playerTwo.transform.position.y > transform.position.y) isSpawning = true;
 		else if (!isSpawning) return;
 
 		untilNextSpawn -= Time.deltaTime;
 		if(untilNextSpawn <= 0)
 		{
-			untilNextSpawn += spawnDelay;
+			untilNextSpawn += spawnDelay / (2 * Players.p.playerCount - 1);
 			SpawnEnemy();
 		}
 	}

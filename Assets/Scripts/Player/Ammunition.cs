@@ -14,6 +14,7 @@ public class Ammunition : MonoBehaviour
     {
         magazineText.text = magazineCurrent.ToString();
         ammoText.text = maxAmmunition.ToString();
+		ammoText.transform.parent.gameObject.SetActive(true);
     }
 
 	void Update()

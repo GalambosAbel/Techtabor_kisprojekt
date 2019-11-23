@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 public class Hornet : MonoBehaviour
 {
@@ -36,7 +35,7 @@ public class Hornet : MonoBehaviour
 	void Awake()
 	{
 		transform.position = new Vector3(transform.position.x, transform.position.y, 0);
-		targetTransform = Players.p.playerOne.transform;
+		GetNewTarget();
 		seeker = GetComponent<Seeker>();
 		seeker.target = targetTransform.position;
 		lastPos = transform.position;
@@ -44,6 +43,7 @@ public class Hornet : MonoBehaviour
 
 	void Update()
 	{
+		if (targetTransform == null) GetNewTarget();
 		if (seeker != null) seeker.target = targetTransform.position;
 		GoTowards(goalPos);
 		if (ableToAttack)
@@ -72,7 +72,16 @@ public class Hornet : MonoBehaviour
 		goalPos = _goalPos;
 	}
 
-    void OnTriggerEnter2D(Collider2D col)
+	void GetNewTarget()
+	{
+		if (targetTransform != null) return;
+		int index = Random.Range(0, Players.p.playerCount - Players.p.DeadPlayersCount);
+
+		if (index == 0 && Players.p.playerOne != null && !Players.p.playersDead[0]) targetTransform = Players.p.playerOne.transform;
+		else if (Players.p.playerTwo != null) targetTransform = Players.p.playerTwo.transform;
+	}
+
+	void OnTriggerEnter2D(Collider2D col)
     {
         if(col.tag == "bullet")
         {

@@ -1,19 +1,16 @@
 fileFormatVersion: 2
-guid: 74b163aa6db1c9b489f3e60aec0ca4c7
+guid: 8420675e14a86fc4d98071828a8aa938
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6427300757584900835
-    second: SkyKnightAnim_0
+      213: -4962652652284403788
+    second: NPC_231_0
   - first:
-      213: -676492262455784392
-    second: SkyKnightAnim_1
+      213: 1359830837964891909
+    second: NPC_231_1
   - first:
-      213: -8163093443472635105
-    second: SkyKnightAnim_2
-  - first:
-      213: -5111025856115537431
-    second: SkyKnightAnim_3
+      213: 468870980005873271
+    second: NPC_231_2
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -122,13 +119,55 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SkyKnightAnim_0
+      name: NPC_231_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 46
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6034578f5baad94995cec342fd33dd7
+      internalID: -4962652652284403788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_231_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 40
+        width: 46
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a35a71ac3ee1d7c4b89ad23b55fa0b2a
+      internalID: 1359830837964891909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_231_2
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 34
-        height: 42
+        width: 46
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -136,71 +175,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 795fc0e87dddb4749b7d5450ebb8f171
-      internalID: 6427300757584900835
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SkyKnightAnim_1
-      rect:
-        serializedVersion: 2
-        x: 34
-        y: 0
-        width: 34
-        height: 42
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0d7ebc255b9e67943ba3651ff2a6fb5a
-      internalID: -676492262455784392
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SkyKnightAnim_2
-      rect:
-        serializedVersion: 2
-        x: 68
-        y: 0
-        width: 34
-        height: 42
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 82916f3fd7616c44daf160415d613639
-      internalID: -8163093443472635105
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SkyKnightAnim_3
-      rect:
-        serializedVersion: 2
-        x: 102
-        y: 0
-        width: 34
-        height: 42
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 94cf789c3393cb247a442b5236a1f1b1
-      internalID: -5111025856115537431
+      spriteID: e24a182da1e2a764593a07349553dac3
+      internalID: 468870980005873271
       vertices: []
       indices: 
       edges: []

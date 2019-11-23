@@ -10,13 +10,14 @@ public class EnemyBullet : MonoBehaviour
 
     void Start()
     {
-        Vector3 p = Players.p.playerOne.transform.position;
+        Vector3 p = GetComponentInParent<SkyKnight>().targetTransform.position;
         rb.velocity = (p - transform.position).normalized * speed;
+		transform.rotation = Quaternion.FromToRotation(Vector3.up, p - transform.position);
     }
 
     void Update()
     {
-        Vector3 p = Players.p.playerOne.transform.position;
+        Vector3 p = GetComponentInParent<SkyKnight>().targetTransform.position;
         Vector3 v = transform.position;
         if (v.x > p.x + despawnDistance || v.x < p.x - despawnDistance
             || v.y > p.y + despawnDistance || v.y < p.y - despawnDistance)

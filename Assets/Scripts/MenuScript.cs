@@ -7,7 +7,7 @@ public class MenuScript : MonoBehaviour
 {
 	public GameObject pauseMenu;
 	public GameObject deathMenu;
-
+    
     void Update()
     {
 		if (Input.GetKeyDown(KeyCode.Escape))
@@ -47,11 +47,22 @@ public class MenuScript : MonoBehaviour
 		SceneManager.LoadScene("Menu");
 	}
 
-	public void Died()
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene("Game");
+    }
+
+	public void Died(int whichPlayer)
 	{
-		Players.p.paused = true;
-		pauseMenu.SetActive(false);
-		deathMenu.SetActive(true);
-		Time.timeScale = 0f;
+        Players.p.playersDead[whichPlayer] = true;
+        if(Players.p.playersDead[0] && Players.p.playersDead[1])
+        {
+			GetComponent<EnemySpawner>().StopSpawn();
+            Players.p.paused = true;
+			Players.p.dead = true;
+            pauseMenu.SetActive(false);
+            deathMenu.SetActive(true);
+            Time.timeScale = 0f;
+        }
 	}
 }

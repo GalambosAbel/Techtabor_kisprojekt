@@ -9,7 +9,7 @@ public class SkyKnight : MonoBehaviour
     Vector3 playerLastPos;
     Vector3 lastPos;
     Vector3 goalPos;
-    public Transform target;
+    public Transform targetTransform;
     public float minDistance;
     public float maxDistance;
     public float speed;
@@ -21,20 +21,21 @@ public class SkyKnight : MonoBehaviour
 
     void Awake()
     {
-        target = Players.p.playerOne.transform;
+		GetNewTarget();
         seeker = GetComponent<Seeker>();
         targetPos = transform.position;
         seeker.target = targetPos;
         lastPos = transform.position;
-        playerLastPos = target.position;
+        playerLastPos = targetTransform.position;
     }
 
     void Update()
-    {
-        SetTargetPosition();
+	{
+		if (targetTransform == null) GetNewTarget();
+		SetTargetPosition();
         if (seeker != null) seeker.target = targetPos;
-        if (Mathf.Abs((transform.position - target.position).magnitude) > minDistance) GoTowards(goalPos);
-        else GoTowards(target.position + (transform.position - target.position).normalized * maxDistance);
+        if (Mathf.Abs((transform.position - targetTransform.position).magnitude) > minDistance) GoTowards(goalPos);
+        else GoTowards(targetTransform.position + (transform.position - targetTransform.position).normalized * maxDistance);
 
         float avoidPlatformX;
         float avoidPlatformY;
@@ -45,7 +46,7 @@ public class SkyKnight : MonoBehaviour
         transform.position += new Vector3(avoidPlatformX, avoidPlatformY, 0);
 
         lastPos = transform.position;
-        playerLastPos = target.position;
+        playerLastPos = targetTransform.position;
     }
 
     void SetGoal(Vector3 _goalPos)
@@ -76,11 +77,11 @@ public class SkyKnight : MonoBehaviour
 		if (Mathf.Abs(myNode.gridX - targetNode.gridX) < 2 && Mathf.Abs(myNode.gridY - targetNode.gridY) < 2)
         {
             targetPos = GetNewTargetPosition();
-            targetPos = target.position + (targetPos - target.position).normalized * Random.Range(minDistance, maxDistance);
+            targetPos = targetTransform.position + (targetPos - targetTransform.position).normalized * Random.Range(minDistance, maxDistance);
 		}
 		else
         {
-            targetPos += target.position - playerLastPos;
+            targetPos += targetTransform.position - playerLastPos;
         }
     }
 
@@ -90,6 +91,15 @@ public class SkyKnight : MonoBehaviour
         float Y = Random.Range(-Camera.main.orthographicSize, Camera.main.orthographicSize) + Camera.main.transform.position.y;
 		return new Vector3(X, Y, 0);
     }
+
+	void GetNewTarget ()
+	{
+		if (targetTransform != null) return;
+		int index = Random.Range(0, Players.p.playerCount - Players.p.DeadPlayersCount);
+
+		if (index == 0 && Players.p.playerOne != null && !Players.p.playersDead[0]) targetTransform = Players.p.playerOne.transform;
+		else if (Players.p.playerTwo != null) targetTransform = Players.p.playerTwo.transform;
+	}
 
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -115,9 +125,10 @@ public class SkyKnight : MonoBehaviour
 
 	void OnDrawGizmos()
 	{
+		if (targetTransform == null) return;
 		Gizmos.color = Color.cyan;
-		Gizmos.DrawWireSphere(target.position, minDistance);
-		Gizmos.DrawWireSphere(target.position, maxDistance);
+		Gizmos.DrawWireSphere(targetTransform.position, minDistance);
+		Gizmos.DrawWireSphere(targetTransform.position, maxDistance);
 		Gizmos.color = Color.magenta;
 		Gizmos.DrawCube(targetPos, Vector3.one * 10);
 	}
