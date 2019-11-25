@@ -175,10 +175,12 @@ public class Shop : MonoBehaviour
 		if (Players.p.playerOne != null)
 		{
 			Players.p.playerOne.transform.position = p1Pos;
+			Players.p.playerOne.GetComponent<Ammunition>().magazineCurrent++;
 		}
 		if (Players.p.playerTwo != null)
 		{
 			Players.p.playerTwo.transform.position = p2Pos;
+			Players.p.playerTwo.GetComponent<Ammunition>().magazineCurrent++;
 		}
 
 		isShopping = false;
