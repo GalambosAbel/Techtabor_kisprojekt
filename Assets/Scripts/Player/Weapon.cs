@@ -10,10 +10,9 @@ public class Weapon : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown((KeyCode)PlayerPrefs.GetInt("Shoot",323)))
+        if (Input.GetKeyDown((KeyCode)PlayerPrefs.GetInt("Shoot",323)) && this.name == "Player2")
         {
-            Shoot();
-            
+            Shoot(); 
         }
     }
 
@@ -25,7 +24,7 @@ public class Weapon : MonoBehaviour
 			Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mouse.z = 0;
             Vector3 bulletSpawnPoint = transform.position + (mouse - transform.position).normalized * spawnPointMultiplier;
-            Instantiate(bullet, bulletSpawnPoint, transform.rotation);
+            Instantiate(bullet, bulletSpawnPoint, transform.rotation, this.gameObject.transform);
         }
     }
 }
