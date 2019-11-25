@@ -135,7 +135,7 @@ SpriteRenderer:
   m_Size: {x: 0.04, y: 0.04}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &8592890772019715256
@@ -173,7 +173,7 @@ MonoBehaviour:
     m_Bits: 512
   attackRange: 14
   damage: 40
-  deathAnim: {fileID: 4089843476902289233, guid: a00f108f7c823c44bad6701eb02b8231,
+  deathAnim: {fileID: 7890495037050191801, guid: 389e0d48e7b8ca2428b3df5c1ed1f6bf,
     type: 3}
 --- !u!95 &3276279507188445941
 Animator:
