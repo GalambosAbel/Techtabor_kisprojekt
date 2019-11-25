@@ -94,7 +94,7 @@ public class SkyKnight : MonoBehaviour
 
 	void GetNewTarget ()
 	{
-		if (targetTransform.gameObject.activeSelf) return;
+		if (targetTransform != null) if (targetTransform.gameObject.activeSelf) return;
 		int index = Random.Range(0, Players.p.playerCount - Players.p.DeadPlayersCount);
 
 		if (index == 0 && Players.p.playerOne.activeSelf && !Players.p.playersDead[0]) targetTransform = Players.p.playerOne.transform;
