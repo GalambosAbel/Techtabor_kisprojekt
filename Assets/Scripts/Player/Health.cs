@@ -8,6 +8,7 @@ public class Health : MonoBehaviour
 	SpriteRenderer sr;
     public float hp;
     public int max;
+	public int ammoRegain;
     public float timeUntilInvulnerable;
     public float startTimeUInvul;
     public GameObject healthBar;
@@ -58,9 +59,13 @@ public class Health : MonoBehaviour
 		if (col.tag == "enemyBullet") 
         {
             Shot(20);
-        }
+		}
+		if (col.tag == "bullet")
+		{
+			GetComponent<Ammunition>().magazineCurrent += ammoRegain;
+		}
 
-    }
+	}
     private void OnTriggerStay2D(Collider2D col)
     {
         if (col.name == "Fire")
@@ -100,7 +105,7 @@ public class Health : MonoBehaviour
     void Die()
     {
 		FindObjectOfType<MenuScript>().Died(whichPlayer);
-        Destroy(gameObject);
+		gameObject.SetActive(false);
     }
 
     void FireDamage()

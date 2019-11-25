@@ -11,6 +11,7 @@ public class Players : MonoBehaviour
 	public bool[] playersDead;
 
 	public int money;
+	public int multiplayerMaxAmmo;
 
 	public bool paused = false;
 	public bool dead = false;
@@ -24,7 +25,12 @@ public class Players : MonoBehaviour
 		if (PlayerPrefs.GetInt("NumberOfPlayers") == 1)
 		{
 			FindObjectOfType<MenuScript>().Died(1);
-			Destroy(playerTwo);
+			playerTwo.SetActive(false);
+		}
+		else
+		{
+			playerOne.GetComponent<Ammunition>().maxAmmunition = multiplayerMaxAmmo;
+			playerTwo.GetComponent<Ammunition>().maxAmmunition = multiplayerMaxAmmo;
 		}
 	}
 

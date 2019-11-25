@@ -10,6 +10,7 @@ public class Shop : MonoBehaviour
 
 	public Collider2D heart;
 	public Collider2D ammo;
+	public Collider2D revive;
 
 	int p1HP = 0;
 	int p2HP = 0;
@@ -24,9 +25,21 @@ public class Shop : MonoBehaviour
 	public int ammoCost;
 	public int ammoCount;
 
+	public int reviveCost;
+
 	bool isShopping = false;
 
 	public Camera shopCamera;
+
+	void Awake()
+	{
+		if(PlayerPrefs.GetInt("NumberOfPlayers") == 2)
+		{
+			Destroy(ammo.gameObject);
+			ammo = revive;
+			ammo.gameObject.SetActive(true);
+		}
+	}
 
 	void Update()
 	{
@@ -40,7 +53,7 @@ public class Shop : MonoBehaviour
     {
 		if (isShopping)
 		{
-			if(Players.p.playerOne != null)
+			if(Players.p.playerOne.activeSelf)
 			{
 				if (heart.IsTouching(Players.p.playerOne.GetComponent<BoxCollider2D>()))
 				{
@@ -59,13 +72,13 @@ public class Shop : MonoBehaviour
 					if (p1Am >= 50)
 					{
 						p1Am = 0;
-						BuyAmmo(Players.p.playerOne);
+						BuyAmmoOrRevive(Players.p.playerOne);
 					}
 				}
 				else p1Am = 0;
 
 			}
-			if (Players.p.playerTwo != null)
+			if (Players.p.playerTwo.activeSelf)
 			{
 				if (heart.IsTouching(Players.p.playerTwo.GetComponent<BoxCollider2D>()))
 				{
@@ -84,7 +97,7 @@ public class Shop : MonoBehaviour
 					if (p2Am >= 50)
 					{
 						p2Am = 0;
-						BuyAmmo(Players.p.playerTwo);
+						BuyAmmoOrRevive(Players.p.playerTwo);
 					}
 				}
 				else p2Am = 0;
@@ -101,12 +114,40 @@ public class Shop : MonoBehaviour
 		}
 	}
 
-	void BuyAmmo(GameObject player)
+	void BuyAmmoOrRevive(GameObject player)
 	{
-		if (Players.p.money >= ammoCost && player.GetComponent<Ammunition>().magazineCurrent < player.GetComponent<Ammunition>().maxAmmunition)
+		if (PlayerPrefs.GetInt("NumberOfPlayers") != 2)
 		{
-			player.GetComponent<Ammunition>().magazineCurrent += ammoCount;
-			Players.p.money -= ammoCost;
+			if (Players.p.money >= ammoCost && player.GetComponent<Ammunition>().magazineCurrent < player.GetComponent<Ammunition>().maxAmmunition)
+			{
+				player.GetComponent<Ammunition>().magazineCurrent += ammoCount;
+				Players.p.money -= ammoCost;
+			}
+		}
+
+		if (PlayerPrefs.GetInt("NumberOfPlayers") == 2)
+		{
+			if (Players.p.money >= reviveCost)
+			{
+				if(Players.p.playersDead[0])
+				{
+					p1Pos = p2Pos;
+					Players.p.playerOne.SetActive(true);
+					Players.p.playerOne.GetComponent<Health>().Heal(Players.p.playerOne.GetComponent<Health>().max);
+					Players.p.playerOne.transform.position = shopEnterance;
+					Players.p.playersDead[0] = false;
+					Players.p.money -= reviveCost;
+				}
+				else if(Players.p.playersDead[1])
+				{
+					p2Pos = p1Pos;
+					Players.p.playerTwo.SetActive(true);
+					Players.p.playerTwo.GetComponent<Health>().Heal(Players.p.playerTwo.GetComponent<Health>().max);
+					Players.p.playerTwo.transform.position = shopEnterance;
+					Players.p.playersDead[1] = false;
+					Players.p.money -= reviveCost;
+				}
+			}
 		}
 	}
 

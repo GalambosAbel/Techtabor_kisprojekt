@@ -43,7 +43,7 @@ public class Hornet : MonoBehaviour
 
 	void Update()
 	{
-		if (targetTransform == null) GetNewTarget();
+		if (!targetTransform.gameObject.activeSelf) GetNewTarget();
 		if (seeker != null) seeker.target = targetTransform.position;
 		GoTowards(goalPos);
 		if (ableToAttack)
@@ -74,11 +74,11 @@ public class Hornet : MonoBehaviour
 
 	void GetNewTarget()
 	{
-		if (targetTransform != null) return;
+		if (targetTransform.gameObject.activeSelf) return;
 		int index = Random.Range(0, Players.p.playerCount - Players.p.DeadPlayersCount);
 
-		if (index == 0 && Players.p.playerOne != null && !Players.p.playersDead[0]) targetTransform = Players.p.playerOne.transform;
-		else if (Players.p.playerTwo != null) targetTransform = Players.p.playerTwo.transform;
+		if (index == 0 && Players.p.playerOne.activeSelf && !Players.p.playersDead[0]) targetTransform = Players.p.playerOne.transform;
+		else if (Players.p.playerTwo.activeSelf) targetTransform = Players.p.playerTwo.transform;
 	}
 
 	void OnTriggerEnter2D(Collider2D col)
