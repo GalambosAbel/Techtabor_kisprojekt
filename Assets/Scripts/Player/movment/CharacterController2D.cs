@@ -15,7 +15,7 @@ public class CharacterController2D : MonoBehaviour
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	private bool m_Grounded;            // Whether or not the player is grounded.
 	private Rigidbody2D m_Rigidbody2D;
-	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
+	public bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
     private bool ableToDoubleJump;
 
@@ -114,17 +114,27 @@ public class CharacterController2D : MonoBehaviour
 
 	private void Animate()
 	{
+        Vector3 mouseDir = new Vector3();
+        Vector3 crossDir = new Vector3();
+        float angle = 0;
 		if (!m_Grounded) animator.SetBool("Airborne", true);
 		else animator.SetBool("Airborne", false);
 
 		if (Mathf.Abs(m_Rigidbody2D.velocity.x) > 1) animator.SetBool("IsMoving", true);
 		else animator.SetBool("IsMoving", false);
-
-		Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition) - new Vector3(0, 0, Camera.main.transform.position.z);
-		Vector3 mouseDir = (mouse - transform.position).normalized;
-
-		float angle = Vector3.Angle(mouseDir, Vector3.down);
-		int aimDirIndex = 2;
+        if(Players.p.playerOne.transform.position == transform.position)
+        {
+		    Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition) - new Vector3(0, 0, Camera.main.transform.position.z);
+		    mouseDir = (mouse - transform.position).normalized;
+		    angle = Vector3.Angle(mouseDir, Vector3.down);
+        }
+        else
+        {
+            Vector3 crosshair = FindObjectOfType<Crosshair>().transform.position;
+            crossDir = (crosshair - transform.position).normalized;
+            angle = Vector3.Angle(crossDir, Vector3.down);
+        }
+        int aimDirIndex = 2;
 		if (angle < 67.5f) aimDirIndex = 1;
 		if (angle < 22.5f) aimDirIndex = 0;
 		if (angle > 112.5f) aimDirIndex = 3;
@@ -133,8 +143,16 @@ public class CharacterController2D : MonoBehaviour
 
 		if(Mathf.Abs(m_Rigidbody2D.velocity.x) < 1 && m_Grounded)
 		{
-			if (m_FacingRight) if (Vector3.Angle(mouseDir, Vector3.right) > 90f) Flip(); 
-			if (!m_FacingRight) if (Vector3.Angle(mouseDir, Vector3.left) > 90f) Flip(); 
+            if (Players.p.playerOne.transform.position == transform.position)
+            {
+                if (m_FacingRight) if (Vector3.Angle(mouseDir, Vector3.right) > 90f) Flip();
+                if (!m_FacingRight) if (Vector3.Angle(mouseDir, Vector3.left) > 90f) Flip();
+            }
+            else
+            {
+                if (m_FacingRight) if (Vector3.Angle(crossDir, Vector3.right) > 90f) Flip();
+                if (!m_FacingRight) if (Vector3.Angle(crossDir, Vector3.left) > 90f) Flip();
+            }
 		} 
 	}
 

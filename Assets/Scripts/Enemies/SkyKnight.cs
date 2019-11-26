@@ -105,7 +105,7 @@ public class SkyKnight : MonoBehaviour
     {
         if (col.tag == "bullet")
         {
-            Weapon weapon = Players.p.playerOne.GetComponent<Weapon>();
+            Weapon1 weapon = Players.p.playerOne.GetComponent<Weapon1>();
             HP -= weapon.damage;
 			FindObjectOfType<AudioManager>().Play("EnemyHurt");
 		}

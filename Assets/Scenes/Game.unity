@@ -494,7 +494,7 @@ GameObject:
   - component: {fileID: 125394481}
   - component: {fileID: 125394482}
   m_Layer: 9
-  m_Name: Player 1
+  m_Name: Player1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -591,6 +591,7 @@ MonoBehaviour:
   m_GroundCheck: {fileID: 1673861422}
   downwardsAcceleration: 300
   animator: {fileID: 125394482}
+  m_FacingRight: 1
   OnLandEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -3366,10 +3367,10 @@ GameObject:
   - component: {fileID: 1072907986}
   - component: {fileID: 1072907985}
   - component: {fileID: 1072907984}
-  - component: {fileID: 1072907983}
   - component: {fileID: 1072907982}
   - component: {fileID: 1072907981}
   - component: {fileID: 1072907990}
+  - component: {fileID: 1072907983}
   m_Layer: 9
   m_Name: Player 2
   m_TagString: Player
@@ -3421,7 +3422,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1072907980}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b90724d711f62847a0cb686b750b211, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d7d55554c8e04444b2e9b4b7251729b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 3575652661607520977, guid: 9b7f833e0d02e8b498227b9859fb6e38, type: 3}
@@ -3564,6 +3565,7 @@ MonoBehaviour:
   m_GroundCheck: {fileID: 82521463}
   downwardsAcceleration: 300
   animator: {fileID: 1072907981}
+  m_FacingRight: 1
   OnLandEvent:
     m_PersistentCalls:
       m_Calls: []

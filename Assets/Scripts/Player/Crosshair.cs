@@ -6,9 +6,11 @@ public class Crosshair : MonoBehaviour
 {
 	public float crosshairSpeed = 50f;
 	public float distance = 50f;
+    private bool wasFacingRight;
 
     void Start()
     {
+        wasFacingRight = true;
 		transform.position = Camera.main.transform.position;
     }
 
@@ -21,5 +23,17 @@ public class Crosshair : MonoBehaviour
 
 		Vector3 direction = (transform.position - transform.parent.position).normalized;
 		transform.position = transform.parent.position + direction * distance;
+
+
+
+        if (transform.parent.GetComponent<CharacterController2D>().m_FacingRight && !wasFacingRight)
+        {
+            transform.position = new Vector3(2 * transform.parent.transform.position.x - transform.position.x, transform.position.y, transform.position.z);
+        }
+        else if (!transform.parent.GetComponent<CharacterController2D>().m_FacingRight && wasFacingRight)
+        {
+            transform.position = new Vector3(2 * transform.parent.transform.position.x - transform.position.x, transform.position.y, transform.position.z);
+        }
+        wasFacingRight = transform.parent.GetComponent<CharacterController2D>().m_FacingRight;
     }
 }

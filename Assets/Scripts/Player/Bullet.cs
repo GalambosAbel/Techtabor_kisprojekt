@@ -10,10 +10,22 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
-        Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mouse.z = 0;
-        rb.velocity = (mouse - transform.position).normalized * speed;
-		transform.rotation = Quaternion.FromToRotation(Vector3.up, mouse - transform.position);
+        float Dist1 = (Players.p.playerOne.transform.position - transform.position).magnitude;
+        float Dist2 = (Players.p.playerTwo.transform.position - transform.position).magnitude;
+        if (Dist1 < Dist2)
+        {
+            Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mouse.z = 0;
+            rb.velocity = (mouse - transform.position).normalized * speed;
+            transform.rotation = Quaternion.FromToRotation(Vector3.up, mouse - transform.position);
+        }
+        else
+        {
+                
+            Vector3 crosshair = FindObjectOfType<Crosshair>().transform.position;
+            rb.velocity = (crosshair - transform.position).normalized * speed;
+            transform.rotation = Quaternion.FromToRotation(Vector3.up, crosshair - transform.position);
+        }
     }
 
 	void Update()
