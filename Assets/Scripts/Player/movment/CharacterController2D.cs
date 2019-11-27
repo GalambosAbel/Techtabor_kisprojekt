@@ -114,27 +114,26 @@ public class CharacterController2D : MonoBehaviour
 
 	private void Animate()
 	{
-        Vector3 mouseDir = new Vector3();
-        Vector3 crossDir = new Vector3();
+		Vector3 mouse;
+		Vector3 mouseDir = new Vector3();
         float angle = 0;
 		if (!m_Grounded) animator.SetBool("Airborne", true);
 		else animator.SetBool("Airborne", false);
 
 		if (Mathf.Abs(m_Rigidbody2D.velocity.x) > 1) animator.SetBool("IsMoving", true);
 		else animator.SetBool("IsMoving", false);
-        if(Players.p.playerOne.transform.position == transform.position)
+        if(Players.p.playerOne == gameObject)
         {
-		    Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition) - new Vector3(0, 0, Camera.main.transform.position.z);
-		    mouseDir = (mouse - transform.position).normalized;
-		    angle = Vector3.Angle(mouseDir, Vector3.down);
+		    mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition) - new Vector3(0, 0, Camera.main.transform.position.z);
         }
         else
         {
-            Vector3 crosshair = FindObjectOfType<Crosshair>().transform.position;
-            crossDir = (crosshair - transform.position).normalized;
-            angle = Vector3.Angle(crossDir, Vector3.down);
+			mouse = FindObjectOfType<Crosshair>().transform.position;
         }
-        int aimDirIndex = 2;
+		mouseDir = (mouse - transform.position).normalized;
+		angle = Vector3.Angle(mouseDir, Vector3.down);
+
+		int aimDirIndex = 2;
 		if (angle < 67.5f) aimDirIndex = 1;
 		if (angle < 22.5f) aimDirIndex = 0;
 		if (angle > 112.5f) aimDirIndex = 3;
@@ -143,16 +142,8 @@ public class CharacterController2D : MonoBehaviour
 
 		if(Mathf.Abs(m_Rigidbody2D.velocity.x) < 1 && m_Grounded)
 		{
-            if (Players.p.playerOne.transform.position == transform.position)
-            {
                 if (m_FacingRight) if (Vector3.Angle(mouseDir, Vector3.right) > 90f) Flip();
                 if (!m_FacingRight) if (Vector3.Angle(mouseDir, Vector3.left) > 90f) Flip();
-            }
-            else
-            {
-                if (m_FacingRight) if (Vector3.Angle(crossDir, Vector3.right) > 90f) Flip();
-                if (!m_FacingRight) if (Vector3.Angle(crossDir, Vector3.left) > 90f) Flip();
-            }
 		} 
 	}
 
@@ -162,5 +153,9 @@ public class CharacterController2D : MonoBehaviour
 		m_FacingRight = !m_FacingRight;
 
         transform.Rotate(0f, 180f, 0f);
+
+		Transform ch = FindObjectOfType<Crosshair>().transform;
+
+		ch.position = new Vector3(2 * transform.position.x - ch.position.x, ch.position.y, 0); 
 	}
 }
