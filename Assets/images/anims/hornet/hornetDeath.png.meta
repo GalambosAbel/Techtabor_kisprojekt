@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: ef86c8fbc45d3b44faf2ef4b13f349aa
+guid: 7fbc03d81e1a8d345a701fe3032b231c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4691479261643395814
-    second: Hornet death anim_0
+      213: 4356123931147646982
+    second: hornetDeath_0
   - first:
-      213: -1663575234232707340
-    second: Hornet death anim_1
+      213: 1412231624489298283
+    second: hornetDeath_1
   - first:
-      213: -1927843627895292406
-    second: Hornet death anim_2
+      213: 8674073104565281550
+    second: hornetDeath_2
   - first:
-      213: -7691902375179636196
-    second: Hornet death anim_3
+      213: -3277399047458033358
+    second: hornetDeath_3
   - first:
-      213: -61807830828680563
-    second: Hornet death anim_4
+      213: 2201813218827958520
+    second: hornetDeath_4
   - first:
-      213: 2161065715329796870
-    second: Hornet death anim_5
+      213: -3257296415830103938
+    second: hornetDeath_5
   - first:
-      213: 4631524230605407887
-    second: Hornet death anim_6
+      213: 8878045304154939276
+    second: hornetDeath_6
   - first:
-      213: 6803298995732027607
-    second: Hornet death anim_7
+      213: -4343422000477743281
+    second: hornetDeath_7
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -134,13 +134,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hornet death anim_0
+      name: hornetDeath_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
-        height: 34
+        width: 30
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -148,20 +148,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa997f99f003b3c4a929921c15ee0384
-      internalID: 4691479261643395814
+      spriteID: b816ef1bc512df84e92c13c643e236ac
+      internalID: 4356123931147646982
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hornet death anim_1
+      name: hornetDeath_1
       rect:
         serializedVersion: 2
-        x: 48
+        x: 30
         y: 0
-        width: 48
-        height: 34
+        width: 30
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,20 +169,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fddf6dcbc0f4ed54485c161cc85f0276
-      internalID: -1663575234232707340
+      spriteID: 4390bb20b0ee290418d2244f83f0847e
+      internalID: 1412231624489298283
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hornet death anim_2
+      name: hornetDeath_2
       rect:
         serializedVersion: 2
-        x: 96
+        x: 60
         y: 0
-        width: 48
-        height: 34
+        width: 30
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,20 +190,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5dc5dc194c435f4d89bcf84bdb26551
-      internalID: -1927843627895292406
+      spriteID: 15cd562fd804362499871df56bee641f
+      internalID: 8674073104565281550
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hornet death anim_3
+      name: hornetDeath_3
       rect:
         serializedVersion: 2
-        x: 144
+        x: 90
         y: 0
-        width: 48
-        height: 34
+        width: 30
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -211,20 +211,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22db354cfff18e64f9177718f3dc7e81
-      internalID: -7691902375179636196
+      spriteID: 9e0a995c0109a434fbfcdc0a66cd6717
+      internalID: -3277399047458033358
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hornet death anim_4
+      name: hornetDeath_4
       rect:
         serializedVersion: 2
-        x: 192
+        x: 120
         y: 0
-        width: 48
-        height: 34
+        width: 30
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -232,20 +232,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93ed21a749dd07642981af4113d8584f
-      internalID: -61807830828680563
+      spriteID: bf984ba278edbc14f8d8eb28d7b2ffb8
+      internalID: 2201813218827958520
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hornet death anim_5
+      name: hornetDeath_5
       rect:
         serializedVersion: 2
-        x: 240
+        x: 150
         y: 0
-        width: 48
-        height: 34
+        width: 30
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -253,20 +253,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d8178d8bd9552b478a69c70f6021507
-      internalID: 2161065715329796870
+      spriteID: dc04818cbf48ae249921240e7616303b
+      internalID: -3257296415830103938
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hornet death anim_6
+      name: hornetDeath_6
       rect:
         serializedVersion: 2
-        x: 289
+        x: 180
         y: 0
-        width: 48
-        height: 34
+        width: 30
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -274,20 +274,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a5bb05a1b71cb040a0d38b7ee3936e6
-      internalID: 4631524230605407887
+      spriteID: 478fc65dc1ac6fb45a7ce4017502cc41
+      internalID: 8878045304154939276
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hornet death anim_7
+      name: hornetDeath_7
       rect:
         serializedVersion: 2
-        x: 336
+        x: 210
         y: 0
-        width: 48
-        height: 34
+        width: 30
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -295,8 +295,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c554b9bf143a7e488876f3de2023988
-      internalID: 6803298995732027607
+      spriteID: c23efa9f3293dad4394bdea08554a13f
+      internalID: -4343422000477743281
       vertices: []
       indices: 
       edges: []
