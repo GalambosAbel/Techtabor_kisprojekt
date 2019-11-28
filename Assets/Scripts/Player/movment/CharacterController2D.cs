@@ -154,8 +154,10 @@ public class CharacterController2D : MonoBehaviour
 
         transform.Rotate(0f, 180f, 0f);
 
-		Transform ch = FindObjectOfType<Crosshair>().transform;
-
-		ch.position = new Vector3(2 * transform.position.x - ch.position.x, ch.position.y, 0); 
+		if (Players.p.playerOne != gameObject)
+		{
+			Transform ch = FindObjectOfType<Crosshair>().transform;
+			ch.position = new Vector3(2 * transform.position.x - ch.position.x, ch.position.y, 0);
+		}
 	}
 }
