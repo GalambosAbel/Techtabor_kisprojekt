@@ -16,15 +16,15 @@ public class Movement2 : MonoBehaviour
     void Update()
     {
         horizontalMove = 0;
-        if (Input.GetKey(KeyCode.LeftArrow/*(KeyCode)PlayerPrefs.GetInt("Left", 97)*/))
+        if (Input.GetKey((KeyCode)PlayerPrefs.GetInt("Left2", 97)))
         {
             horizontalMove = -runSpeed;
         }
-        if (Input.GetKey(KeyCode.RightArrow/*(KeyCode)PlayerPrefs.GetInt("Right", 100)*/))
+        if (Input.GetKey((KeyCode)PlayerPrefs.GetInt("Right2", 100)))
         {
             horizontalMove = runSpeed;
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow/*(KeyCode)PlayerPrefs.GetInt("Jump", 32)*/))
+        if (Input.GetKeyDown((KeyCode)PlayerPrefs.GetInt("Jump2", 119)))
         {
             jump = true;
         }

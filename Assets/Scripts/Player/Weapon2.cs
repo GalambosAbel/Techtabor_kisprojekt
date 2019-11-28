@@ -10,7 +10,7 @@ public class Weapon2 : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown((KeyCode)PlayerPrefs.GetInt("Shoot2", 258)))
+        if (Input.GetKeyDown((KeyCode)PlayerPrefs.GetInt("Shoot2", 32)))
         {
             Shoot();
         }
