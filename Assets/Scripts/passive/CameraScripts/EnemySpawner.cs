@@ -29,8 +29,8 @@ public class EnemySpawner : MonoBehaviour
 
 	void Update ()
 	{
-		if (Players.p.playerOne.activeSelf) if (Players.p.playerOne.transform.position.y > transform.position.y) isSpawning = true;
-		else if (Players.p.playerTwo.activeSelf) if (Players.p.playerTwo.transform.position.y > transform.position.y) isSpawning = true;
+        if (Players.p.playerOne.activeSelf) { if (Players.p.playerOne.transform.position.y > transform.position.y) isSpawning = true; }
+		else if (Players.p.playerTwo.activeSelf) { if (Players.p.playerTwo.transform.position.y > transform.position.y) isSpawning = true; }
 		if (!isSpawning) return;
 
 		untilNextSpawn -= Time.deltaTime;
