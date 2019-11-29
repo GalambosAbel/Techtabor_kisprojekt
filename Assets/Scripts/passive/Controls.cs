@@ -11,10 +11,10 @@ public class Controls : MonoBehaviour
 
     void Start()
     {
-        keys.Add("Jump", (KeyCode)PlayerPrefs.GetInt("Jump",273));
-        keys.Add("Left", (KeyCode)PlayerPrefs.GetInt("Left",276));
-        keys.Add("Right", (KeyCode)PlayerPrefs.GetInt("Right",275));
-        keys.Add("Shoot", (KeyCode)PlayerPrefs.GetInt("Shoot",323));
+        keys.Add("Jump", (KeyCode)PlayerPrefs.GetInt("Jump", 273));
+        keys.Add("Left", (KeyCode)PlayerPrefs.GetInt("Left", 276));
+        keys.Add("Right", (KeyCode)PlayerPrefs.GetInt("Right", 275));
+        keys.Add("Shoot", (KeyCode)PlayerPrefs.GetInt("Shoot", 323));
         keys.Add("LeaveShop", (KeyCode)PlayerPrefs.GetInt("LeaveShop", 108));
         keys.Add("Jump2", (KeyCode)PlayerPrefs.GetInt("Jump2", 119));
         keys.Add("Left2", (KeyCode)PlayerPrefs.GetInt("Left2", 97));
@@ -46,16 +46,16 @@ public class Controls : MonoBehaviour
             Event e = Event.current;
             if(e.isKey)
             {
-                keys[currentKey.name] = e.keyCode;
-                PlayerPrefs.SetInt(currentKey.name, (int)e.keyCode);
-                currentKey.GetComponentInChildren<Text>().text = keys[currentKey.name].ToString();
+                keys[MinusButton(currentKey.name)] = e.keyCode;
+                PlayerPrefs.SetInt(MinusButton(currentKey.name), (int)e.keyCode);
+                currentKey.GetComponentInChildren<Text>().text = keys[MinusButton(currentKey.name)].ToString();
                 currentKey = null;
             }
             if (e.isMouse)
             {
-                keys[currentKey.name] = (KeyCode)(e.button + 323);
-                PlayerPrefs.SetInt(currentKey.name, e.button + 323);
-                currentKey.GetComponentInChildren<Text>().text = keys[currentKey.name].ToString();
+                keys[MinusButton(currentKey.name)] = (KeyCode)(e.button + 323);
+                PlayerPrefs.SetInt(MinusButton(currentKey.name), e.button + 323);
+                currentKey.GetComponentInChildren<Text>().text = keys[MinusButton(currentKey.name)].ToString();
                 currentKey = null;
             }
         }
@@ -64,5 +64,10 @@ public class Controls : MonoBehaviour
     public void ChangeKey(GameObject clicked)
     {
         currentKey = clicked;
+    }
+
+    public string MinusButton(string stringToReduce)
+    {
+        return stringToReduce.Substring(0, stringToReduce.Length - 6);
     }
 }
