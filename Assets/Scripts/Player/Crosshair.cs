@@ -1,16 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Crosshair : MonoBehaviour
 {
 	public float crosshairSpeed = 50f;
 	public float distance = 50f;
 
-    void Start()
+	Player2Controller inputController;
+
+	void Start()
     {
 		transform.position = Camera.main.transform.position;
-    }
+		inputController = new Player2Controller();
+
+		inputController.Gameplay.Enable();
+
+		inputController.Gameplay.Aim.performed += ctx => QuickAim(ctx.ReadValue<Vector2>());
+	}
 
     void Update()
     {
@@ -22,4 +30,9 @@ public class Crosshair : MonoBehaviour
 		Vector3 direction = (transform.position - transform.parent.position).normalized;
 		transform.position = transform.parent.position + direction * distance;
     }
+
+	void QuickAim(Vector2 direction)
+	{
+		transform.position = transform.parent.position + new Vector3(direction.x, direction.y, 0).normalized * distance;
+	}
 }

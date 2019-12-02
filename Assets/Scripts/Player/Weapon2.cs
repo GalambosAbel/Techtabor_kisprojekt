@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Weapon2 : MonoBehaviour
 {
@@ -8,7 +9,18 @@ public class Weapon2 : MonoBehaviour
     public float spawnPointMultiplier;
     public int damage;
 
-    void Update()
+	Player2Controller inputController;
+
+	void Start()
+	{
+		inputController = new Player2Controller();
+
+		inputController.Gameplay.Enable();
+
+		inputController.Gameplay.Shoot.started += ctx => Shoot();
+	}
+
+	void Update()
     {
         if (Input.GetKeyDown((KeyCode)PlayerPrefs.GetInt("Shoot2", 32)))
         {
