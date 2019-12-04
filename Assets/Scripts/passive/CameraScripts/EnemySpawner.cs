@@ -36,7 +36,7 @@ public class EnemySpawner : MonoBehaviour
 		untilNextSpawn -= Time.deltaTime;
 		if(untilNextSpawn <= 0)
 		{
-			untilNextSpawn += spawnDelay / (2 * Players.p.playerCount - 1);
+            untilNextSpawn += spawnDelay;
 			SpawnEnemy();
 		}
 	}
